@@ -1,0 +1,6 @@
+# Claude Code / assistant tooling — ignored for now
+.claude/
+CLAUDE.md
+
+# OS / editor cruft
+.DS_Store
