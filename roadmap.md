@@ -44,11 +44,11 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **Fresh start — no material generated yet; every topic is `todo`.** Begin generating from the top of the backend track:
+> **F. Computing Fundamentals is `done`** (concept + verified examples + lesson). Next in order:
 >
-> 1. **F. Computing Fundamentals** - the bedrock; makes L1-L5 far easier.
-> 2. **L0. System-Design Foundations** - the vocabulary and estimation skills every design uses.
-> 3. Then proceed down the backend track in order (L1+); interleave the frontend track once backend L0-L1 material exists.
+> 1. **L0. System-Design Foundations** - the vocabulary and estimation skills every design uses.
+> 2. **L1. Networking** - how traffic reaches and moves through a system.
+> 3. Then proceed down the backend track in order (L2+); interleave the frontend track once backend L0-L1 material exists.
 
 ---
 
@@ -57,21 +57,22 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 ## F. Computing Fundamentals
 
 **Goal:** Understand what a single machine actually does so every distributed concept later rests on real mechanics, not magic. · **Prereqs:** none.
+**Material:** [Lessons (12 bite-sized)](lessons/backend/F/README.md) · [Concepts](research/backend/F/f-computing-fundamentals.md) · [Case studies & sources](research/backend/F/f-computing-fundamentals-cases-and-sources.md)
 
 | Topic                                                                     | Status | Weight |
 | ------------------------------------------------------------------------- | ------ | ------ |
-| CPU and memory hierarchy (registers, caches, cache lines, locality)       | todo   | 🟥      |
-| Processes vs threads                                                       | todo   | 🟥      |
-| Concurrency vs parallelism; context switching                             | todo   | 🟥      |
-| Locks, mutexes, semaphores; race conditions; deadlock; atomicity          | todo   | 🟥      |
-| I/O models (blocking, non-blocking, async, epoll, event loops)            | todo   | 🟥      |
-| OS scheduling and virtual memory (paging, TLB)                            | todo   | 🟧      |
-| Disks (HDD/SSD/NVMe) and filesystems                                       | todo   | 🟧      |
-| Data representation (binary/hex, ASCII/Unicode/UTF-8, endianness)         | todo   | 🟧      |
-| Serialization (JSON, XML, Protobuf, Avro, Thrift)                         | todo   | 🟥      |
-| Compression (gzip, Snappy, LZ4, Zstd)                                     | todo   | 🟧      |
-| Hashing (crypto vs non-crypto, collisions, checksums/CRC)                 | todo   | 🟥      |
-| Clocks (monotonic vs wall clock, NTP)                                     | todo   | 🟧      |
+| CPU and memory hierarchy (registers, caches, cache lines, locality)       | done   | 🟥      |
+| Processes vs threads                                                       | done   | 🟥      |
+| Concurrency vs parallelism; context switching                             | done   | 🟥      |
+| Locks, mutexes, semaphores; race conditions; deadlock; atomicity          | done   | 🟥      |
+| I/O models (blocking, non-blocking, async, epoll, event loops)            | done   | 🟥      |
+| OS scheduling and virtual memory (paging, TLB)                            | done   | 🟧      |
+| Disks (HDD/SSD/NVMe) and filesystems                                       | done   | 🟧      |
+| Data representation (binary/hex, ASCII/Unicode/UTF-8, endianness)         | done   | 🟧      |
+| Serialization (JSON, XML, Protobuf, Avro, Thrift)                         | done   | 🟥      |
+| Compression (gzip, Snappy, LZ4, Zstd)                                     | done   | 🟧      |
+| Hashing (crypto vs non-crypto, collisions, checksums/CRC)                 | done   | 🟥      |
+| Clocks (monotonic vs wall clock, NTP)                                     | done   | 🟧      |
 
 ## L0. System-Design Foundations
 
