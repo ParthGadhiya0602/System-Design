@@ -1,331 +1,615 @@
 # System Design Learning Roadmap
 
-The master learning path for this repo. It sequences everything a full-stack engineer needs to go from **true beginner → expert** for MAANGO system-design interviews. It is read at the start of most sessions, so it is kept dense and scannable.
+The master learning path for this repo. It sequences everything a full-stack engineer needs to go from **true beginner to expert**. It is read at the start of most sessions, so it is kept dense and scannable.
 
-## Two parallel tracks
+> **Status: FINAL — locked v1 (2026-07-06).** The structure (levels, topics, sequencing) is frozen. Track progress by updating each topic's `Status`; structural changes are versioned updates, not ad-hoc edits.
 
-- **Backend / Distributed-Systems track (L0–L10)** - the core program. This is the main spine.
-- **Frontend System-Design track (FE-L0–FE-L6)** - a parallel, adjacent track. Can be interleaved once backend L0–L1 are done.
-- Side tracks (optional, not sequenced here): **DSA** (coding round) and **IT-trends R&D** (web research).
+## Mission: learning-first
 
-## How status works
+The goal is **deep mastery of every concept** - roughly 90% of the effort goes into truly understanding how each thing works, why it exists, what it trades off, and how it composes with everything else. Real-world examples (how MAANGO companies actually apply it) and interview weight are **secondary signals**: they tell us where to ground the learning and how to prioritize when time is short, but they are not the point. A topic is understood when you can derive it, not just recall it.
 
-| Status        | Meaning                                                           |
-| ------------- | ----------------------------------------------------------------- |
-| `todo`        | Not started. No research/lesson yet.                              |
-| `in-progress` | Research or lesson being written / actively studied.              |
-| `learned`     | Lesson exists and learner has studied it.                         |
-| `practiced`   | Applied in a `practice/` attempt and graded.                      |
+Every topic aims to be learned first-principles-first, then reinforced with a concrete real example, then eventually applied in a practice attempt.
 
-Order of maturity: `todo` → `in-progress` → `learned` → `practiced`. A topic is only truly "done" when `practiced`.
+## Tracks
+
+- **Backend / Distributed-Systems track (F, L0-L15)** - the core spine. Start here.
+- **Frontend System-Design track (FE-F, FE-L0 to FE-L8)** - a parallel, adjacent track. Can be interleaved once backend L0-L1 are done.
+- **Side tracks (optional, not sequenced):** DSA (coding round) and IT-trends R&D (web research).
+
+## Status legend
+
+| Status        | Meaning                                          |
+| ------------- | ------------------------------------------------ |
+| `todo`        | No material generated yet.                       |
+| `in-progress` | Material currently being generated.              |
+| `done`        | Material generated (concept + examples + lesson).|
+
+Order: `todo` -> `in-progress` -> `done`. Status tracks whether the **material exists**, not whether it was studied/practiced (those are async and not tracked here).
+
+## Weight legend
+
+Weight is a **priority signal, not the focus** - everything gets mastered, but when time is tight, do heavier weights first.
+
+| Weight | Meaning                                                              |
+| ------ | ------------------------------------------------------------------- |
+| 🟥      | Core - foundational, appears everywhere, master deeply.             |
+| 🟧      | Important - common and high-value, expected at senior level.        |
+| 🟨      | Good-to-know - rounds out expertise; often emerging or specialized. |
+
+Items marked **(emerging)** are newer or meaningfully evolved since the classic syllabus was written - learn them, but know they are the modern frontier rather than settled canon.
 
 ## Recommended starting point
 
-Start at **L0 Foundations** (backend). It requires no prerequisites and every later topic depends on it. Do not touch FE track or any L1+ topic until L0 is `learned`.
+Start at **F. Computing Fundamentals** (backend). It requires no prerequisites and underpins everything above it. Then move to **L0 Foundations**, then L1+ in order.
 
 ## What's next (current pointer)
 
-> **L0 research is written** (`research/l0-foundations.md`, all 9 topics). Learner is actively studying L0 Topic 1 (what system design is) live. **No `lessons/` files exist yet** - the gap is turning research into learner-facing lessons.
+> **Fresh start — no material generated yet; every topic is `todo`.** Begin generating from the top of the backend track:
 >
-> Continue L0 in prerequisite order. Research already exists (`research/l0-foundations.md` §2, §3, §4), so the immediate move is to work through:
->
-> 1. _Functional vs non-functional requirements_ (research §2).
-> 2. _Client–server model_ (research §3).
-> 3. _Request lifecycle end-to-end_ (research §4).
->
-> After these, finish L0 (§5 estimation, §6 latency, §7 -ilities, §8 SLA/SLO/SLI, §9 scaling), then mark L0 `learned`. No practice problem yet - first attempt is **L10: URL shortener** after L0–L2.
+> 1. **F. Computing Fundamentals** - the bedrock; makes L1-L5 far easier.
+> 2. **L0. System-Design Foundations** - the vocabulary and estimation skills every design uses.
+> 3. Then proceed down the backend track in order (L1+); interleave the frontend track once backend L0-L1 material exists.
 
 ---
 
 # Backend / Distributed-Systems Track
 
-## L0 - Foundations
+## F. Computing Fundamentals
 
-**Goal:** Understand what system design is and the vocabulary/estimation skills every design uses. · **Prereqs:** none. · **Research:** `research/l0-foundations.md` (complete, all 9 topics).
+**Goal:** Understand what a single machine actually does so every distributed concept later rests on real mechanics, not magic. · **Prereqs:** none.
 
-| Topic                                                        | Status      | Related practice problem |
-| ------------------------------------------------------------ | ----------- | ------------------------ |
-| What system design is; the design mindset                    | in-progress | -                        |
-| Functional vs non-functional requirements                    | todo        | all L10                  |
-| Client–server model                                          | todo        | -                        |
-| Request lifecycle end-to-end (browser→DNS→LB→server→DB→back) | todo        | -                        |
-| Back-of-envelope estimation (QPS / storage / bandwidth)      | todo        | URL shortener, Twitter   |
-| Latency numbers every engineer should know                   | todo        | -                        |
-| Availability, reliability, scalability, maintainability      | todo        | -                        |
-| SLA / SLO / SLI                                              | todo        | -                        |
-| Vertical vs horizontal scaling                               | todo        | -                        |
+| Topic                                                                     | Status | Weight |
+| ------------------------------------------------------------------------- | ------ | ------ |
+| CPU and memory hierarchy (registers, caches, cache lines, locality)       | todo   | 🟥      |
+| Processes vs threads                                                       | todo   | 🟥      |
+| Concurrency vs parallelism; context switching                             | todo   | 🟥      |
+| Locks, mutexes, semaphores; race conditions; deadlock; atomicity          | todo   | 🟥      |
+| I/O models (blocking, non-blocking, async, epoll, event loops)            | todo   | 🟥      |
+| OS scheduling and virtual memory (paging, TLB)                            | todo   | 🟧      |
+| Disks (HDD/SSD/NVMe) and filesystems                                       | todo   | 🟧      |
+| Data representation (binary/hex, ASCII/Unicode/UTF-8, endianness)         | todo   | 🟧      |
+| Serialization (JSON, XML, Protobuf, Avro, Thrift)                         | todo   | 🟥      |
+| Compression (gzip, Snappy, LZ4, Zstd)                                     | todo   | 🟧      |
+| Hashing (crypto vs non-crypto, collisions, checksums/CRC)                 | todo   | 🟥      |
+| Clocks (monotonic vs wall clock, NTP)                                     | todo   | 🟧      |
 
-## L1 - Networking & Entry Points
+## L0. System-Design Foundations
 
-**Goal:** Know how traffic reaches and enters a system, and the protocols/edge components involved. · **Prereqs:** L0.
+**Goal:** Understand what system design is and the vocabulary/estimation skills every design uses. · **Prereqs:** F.
 
-| Topic                             | Status | Related practice problem           |
-| --------------------------------- | ------ | ---------------------------------- |
-| IP addressing & routing basics    | todo   | -                                  |
-| DNS (resolution, records, GeoDNS) | todo   | -                                  |
-| TCP vs UDP                        | todo   | -                                  |
-| HTTP/1.1, HTTP/2, HTTP/3 (QUIC)   | todo   | -                                  |
-| HTTPS / TLS handshake             | todo   | -                                  |
-| WebSockets / SSE / long-polling   | todo   | WhatsApp chat, notification system |
-| REST vs gRPC vs GraphQL           | todo   | -                                  |
-| Load balancers (L4 vs L7)         | todo   | -                                  |
-| Reverse proxy                     | todo   | -                                  |
-| API gateway                       | todo   | -                                  |
-| CDN                               | todo   | YouTube/Netflix, Google Drive      |
+| Topic                                                        | Status | Weight |
+| ------------------------------------------------------------ | ------ | ------ |
+| What system design is; the design mindset                    | todo   | 🟥      |
+| Functional vs non-functional requirements                    | todo        | 🟥      |
+| Client-server model                                          | todo        | 🟥      |
+| Request lifecycle end-to-end (browser->DNS->LB->server->DB->back) | todo   | 🟥      |
+| Back-of-envelope estimation (QPS / storage / bandwidth)      | todo        | 🟥      |
+| Latency numbers every engineer should know                   | todo        | 🟥      |
+| Availability, reliability, scalability, maintainability      | todo        | 🟥      |
+| SLA / SLO / SLI                                              | todo        | 🟧      |
+| Vertical vs horizontal scaling                               | todo        | 🟥      |
+| Percentiles and tail latency                                 | todo        | 🟥      |
+| Throughput vs latency                                        | todo        | 🟥      |
+| Little's Law                                                 | todo        | 🟧      |
+| Universal Scalability Law                                    | todo        | 🟨      |
 
-## L2 - Core Building Blocks
+## L1. Networking
 
-**Goal:** Master the reusable components (cache, queue, storage, DB basics) that appear in nearly every design. · **Prereqs:** L0, L1.
+**Goal:** Know how traffic reaches, enters, and moves through a system, and the protocols/edge components involved. · **Prereqs:** L0.
 
-| Topic                                                               | Status | Related practice problem                 |
-| ------------------------------------------------------------------- | ------ | ---------------------------------------- |
-| Caching layers & strategies (read/write-through, write-back, aside) | todo   | typeahead, newsfeed                      |
-| Cache eviction (LRU/LFU/TTL); Redis vs Memcached                    | todo   | distributed cache                        |
-| Cache invalidation & thundering herd                                | todo   | distributed cache                        |
-| Message queues & pub/sub (Kafka / RabbitMQ / SQS)                   | todo   | notification system, ad-click aggregator |
-| Async / background processing                                       | todo   | notification system, job scheduler       |
-| Object / blob storage                                               | todo   | YouTube/Netflix, Google Drive            |
-| Relational vs NoSQL                                                 | todo   | -                                        |
-| ACID vs BASE                                                        | todo   | payments/e-commerce                      |
-| Indexing & B-trees                                                  | todo   | -                                        |
-| Query optimization                                                  | todo   | -                                        |
+| Topic                                        | Status | Weight |
+| -------------------------------------------- | ------ | ------ |
+| OSI and TCP/IP models                        | todo   | 🟧      |
+| IP addressing and subnets                    | todo   | 🟧      |
+| DNS deep (resolution, records, GeoDNS, caching) | todo | 🟥      |
+| TCP (handshake, flow control, congestion control) | todo | 🟥    |
+| UDP                                          | todo   | 🟧      |
+| HTTP/1.1, HTTP/2, HTTP/3 (QUIC)              | todo   | 🟥      |
+| HTTPS / TLS handshake                        | todo   | 🟥      |
+| WebSockets / SSE / long-polling              | todo   | 🟥      |
+| REST vs gRPC vs GraphQL                      | todo   | 🟥      |
+| Sockets                                      | todo   | 🟧      |
+| Forward and reverse proxies                  | todo   | 🟥      |
+| NAT                                          | todo   | 🟨      |
+| Load balancers (L4/L7, algorithms, health checks) | todo | 🟥    |
+| API gateway                                  | todo   | 🟧      |
+| CDN internals                                | todo   | 🟥      |
+| Anycast / BGP basics                         | todo   | 🟨      |
+| WebRTC                                       | todo   | 🟨      |
 
-## L3 - Data at Scale
+## L2. Storage and Relational Databases
 
-**Goal:** Scale data across many machines and model it for large workloads. · **Prereqs:** L2.
+**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0.
 
-| Topic                                                                                | Status | Related practice problem           |
-| ------------------------------------------------------------------------------------ | ------ | ---------------------------------- |
-| Replication (leader-follower, multi-leader, leaderless)                              | todo   | -                                  |
-| Partitioning & sharding                                                              | todo   | Twitter, Instagram                 |
-| Consistent hashing                                                                   | todo   | distributed cache, design DynamoDB |
-| NoSQL families (KV / document / wide-column / graph / time-series / search / NewSQL) | todo   | design DynamoDB                    |
-| Data modeling & denormalization                                                      | todo   | newsfeed, Instagram                |
-| Change data capture (CDC)                                                            | todo   | -                                  |
-| Event sourcing                                                                       | todo   | payments/e-commerce                |
-| CQRS                                                                                 | todo   | payments/e-commerce                |
+| Topic                                         | Status | Weight |
+| --------------------------------------------- | ------ | ------ |
+| Relational model                              | todo   | 🟥      |
+| Normalization forms                           | todo   | 🟧      |
+| SQL depth (joins, aggregation, subqueries, window functions) | todo | 🟥 |
+| ACID                                          | todo   | 🟥      |
+| Transactions and isolation levels             | todo   | 🟥      |
+| MVCC                                          | todo   | 🟧      |
+| Locking (row/table, optimistic/pessimistic)   | todo   | 🟧      |
+| Indexing (B-tree, hash, LSM-tree)             | todo   | 🟥      |
+| Write-ahead log (WAL)                         | todo   | 🟧      |
+| Storage engines                               | todo   | 🟧      |
+| Query planning and optimization               | todo   | 🟧      |
+| Connection pooling                            | todo   | 🟧      |
+| OLTP vs OLAP                                   | todo   | 🟥      |
 
-## L4 - Distributed Systems Theory
+## L3. Caching and Data Access
 
-**Goal:** Reason rigorously about consistency, consensus, and coordination. · **Prereqs:** L3.
+**Goal:** Speed up reads and offload databases with the right caching layer, strategy, and failure handling. · **Prereqs:** L2.
 
-| Topic                                                           | Status | Related practice problem          |
-| --------------------------------------------------------------- | ------ | --------------------------------- |
-| CAP & PACELC                                                    | todo   | -                                 |
-| Consistency models (strong, eventual, causal, read-your-writes) | todo   | -                                 |
-| Consensus (Paxos / Raft / ZAB)                                  | todo   | design Kafka                      |
-| Leader election                                                 | todo   | design Kafka                      |
-| Quorums (R + W > N)                                             | todo   | design DynamoDB                   |
-| Logical clocks (Lamport, vector clocks)                         | todo   | -                                 |
-| Gossip protocol                                                 | todo   | design DynamoDB                   |
-| Distributed locking                                             | todo   | Ticketmaster, job scheduler       |
-| Idempotency                                                     | todo   | payments/e-commerce               |
-| Delivery semantics (at-most / at-least / exactly-once)          | todo   | design Kafka, ad-click aggregator |
-| 2PC & Saga pattern                                              | todo   | payments/e-commerce               |
+| Topic                                                              | Status | Weight |
+| ----------------------------------------------------------------- | ------ | ------ |
+| Caching layers and strategies (read-through, write-through, write-back, cache-aside) | todo | 🟥 |
+| Eviction policies (LRU, LFU, TTL)                                 | todo   | 🟥      |
+| Redis vs Memcached                                                | todo   | 🟥      |
+| Cache stampede / dogpile / thundering herd                        | todo   | 🟧      |
+| Cache coherence and invalidation                                 | todo   | 🟧      |
+| Negative caching                                                  | todo   | 🟨      |
+| CDN caching                                                       | todo   | 🟧      |
+| Object / blob storage                                             | todo   | 🟥      |
 
-## L5 - Reliability & Operations (SRE)
+## L4. NoSQL and Data at Scale
 
-**Goal:** Keep systems fast, resilient, and observable under failure and load. · **Prereqs:** L2 (L4 helpful).
+**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3.
 
-| Topic                                              | Status | Related practice problem |
-| -------------------------------------------------- | ------ | ------------------------ |
-| Rate limiting (token/leaky bucket, sliding window) | todo   | rate limiter             |
-| Circuit breakers                                   | todo   | -                        |
-| Bulkheads                                          | todo   | -                        |
-| Retries w/ backoff + jitter                        | todo   | -                        |
-| Load shedding                                      | todo   | -                        |
-| Backpressure                                       | todo   | -                        |
-| Redundancy & failover                              | todo   | -                        |
-| Multi-region & disaster recovery                   | todo   | -                        |
-| Observability (metrics/logs/traces, RED/USE)       | todo   | log/metrics analytics    |
-| Capacity planning                                  | todo   | -                        |
-| Autoscaling                                        | todo   | -                        |
-| Deploys (blue-green / canary / rolling)            | todo   | -                        |
-| Feature flags                                      | todo   | -                        |
-| Chaos engineering                                  | todo   | -                        |
+| Topic                                                                             | Status | Weight |
+| --------------------------------------------------------------------------------- | ------ | ------ |
+| NoSQL families (KV, document, wide-column, graph, time-series, search, NewSQL, vector) | todo | 🟥 |
+| Replication (leader-follower, multi-leader, leaderless)                            | todo   | 🟥      |
+| Partitioning and sharding                                                          | todo   | 🟥      |
+| Rebalancing and hotspots                                                           | todo   | 🟧      |
+| Consistent hashing (virtual nodes)                                                 | todo   | 🟥      |
+| Data modeling and denormalization                                                 | todo   | 🟥      |
+| Quorums (R + W > N)                                                                | todo   | 🟧      |
+| Change data capture (CDC) + outbox pattern                                         | todo   | 🟧      |
+| Event sourcing                                                                     | todo   | 🟧      |
+| CQRS                                                                               | todo   | 🟧      |
+| Vector databases / ANN search (HNSW) (emerging)                                    | todo   | 🟨      |
+| Real-time OLAP (Pinot, Druid, ClickHouse) (emerging)                              | todo   | 🟨      |
+| HTAP (hybrid transactional/analytical) (emerging)                                | todo   | 🟨      |
+| Database branching / serverless DBs (Neon, PlanetScale) (emerging)                | todo   | 🟨      |
+| Data contracts (schema-registry-enforced) (emerging)                              | todo   | 🟨      |
+| Hybrid Logical Clocks vs TrueTime                                                 | todo   | 🟨      |
 
-## L6 - Security & Cross-Cutting
+## L5. Distributed Systems Theory
 
-**Goal:** Secure the system and handle multi-tenancy, privacy, and abuse. · **Prereqs:** L1 (L5 helpful).
+**Goal:** Reason rigorously about consistency, consensus, time, and coordination under partial failure. · **Prereqs:** L4.
 
-| Topic                           | Status | Related practice problem |
-| ------------------------------- | ------ | ------------------------ |
-| Authentication vs authorization | todo   | -                        |
-| OAuth2 / OIDC                   | todo   | -                        |
-| JWT vs sessions                 | todo   | -                        |
-| TLS in depth                    | todo   | -                        |
-| Encryption at rest / in transit | todo   | payments/e-commerce      |
-| Key management                  | todo   | -                        |
-| DDoS mitigation                 | todo   | -                        |
-| WAF                             | todo   | -                        |
-| API abuse prevention            | todo   | rate limiter             |
-| Multi-tenancy                   | todo   | -                        |
-| Privacy & compliance (GDPR/PCI) | todo   | payments/e-commerce      |
+| Topic                                                             | Status | Weight |
+| ---------------------------------------------------------------- | ------ | ------ |
+| CAP and PACELC                                                   | todo   | 🟥      |
+| Consistency models (strong, eventual, causal, read-your-writes) | todo   | 🟥      |
+| Linearizability vs serializability                              | todo   | 🟧      |
+| Consensus (Paxos, Raft, ZAB)                                     | todo   | 🟥      |
+| Leader election                                                 | todo   | 🟧      |
+| Quorums                                                          | todo   | 🟧      |
+| Logical and vector clocks                                       | todo   | 🟧      |
+| Hybrid logical clocks                                           | todo   | 🟨      |
+| Gossip protocol                                                 | todo   | 🟧      |
+| Failure detectors (phi accrual)                                 | todo   | 🟨      |
+| Merkle trees / anti-entropy / read-repair / hinted handoff      | todo   | 🟧      |
+| Distributed locking and fencing tokens                          | todo   | 🟧      |
+| Idempotency                                                     | todo   | 🟥      |
+| Delivery semantics (at-most/at-least/exactly-once)              | todo   | 🟥      |
+| 2PC / 3PC and saga                                              | todo   | 🟧      |
+| FLP impossibility                                               | todo   | 🟨      |
+| Byzantine fault tolerance                                       | todo   | 🟨      |
+| CRDTs                                                           | todo   | 🟧      |
+| Chain replication                                              | todo   | 🟨      |
+| Split-brain                                                     | todo   | 🟧      |
+| Durable execution / workflow engines (Temporal, Cadence) (emerging) | todo | 🟨   |
+| Deterministic simulation testing (emerging)                     | todo   | 🟨      |
 
-## L7 - Architecture Patterns
+## L6. Messaging and Streaming
 
-**Goal:** Choose and justify system-level structure. · **Prereqs:** L2, L4.
+**Goal:** Move data asynchronously between services and process unbounded streams correctly. · **Prereqs:** L4.
 
-| Topic                                         | Status | Related practice problem |
-| --------------------------------------------- | ------ | ------------------------ |
-| Monolith vs microservices vs modular monolith | todo   | -                        |
-| Service discovery                             | todo   | -                        |
-| Service mesh                                  | todo   | -                        |
-| Event-driven architecture                     | todo   | notification system      |
-| Serverless / FaaS                             | todo   | -                        |
-| Lambda vs Kappa architecture                  | todo   | ad-click aggregator      |
-| Data pipelines / ETL                          | todo   | log/metrics analytics    |
-| Data lakes & warehouses                       | todo   | log/metrics analytics    |
+| Topic                                                        | Status | Weight |
+| ------------------------------------------------------------ | ------ | ------ |
+| Queues vs logs                                               | todo   | 🟥      |
+| Pub/sub                                                      | todo   | 🟥      |
+| Kafka internals (partitions, consumer groups, offsets, ISR) | todo   | 🟥      |
+| RabbitMQ / SQS                                               | todo   | 🟧      |
+| Ordering guarantees                                          | todo   | 🟧      |
+| Exactly-once processing                                      | todo   | 🟧      |
+| Dead-letter queues                                           | todo   | 🟧      |
+| Backpressure                                                 | todo   | 🟧      |
+| Stream processing (Flink, Kafka Streams, Spark)             | todo   | 🟧      |
+| Event-time vs processing-time                               | todo   | 🟧      |
+| Windows and watermarks                                       | todo   | 🟨      |
+| Lambda vs Kappa architecture                                 | todo   | 🟨      |
 
-## L8 - Real-Time & Specialized
+## L7. Reliability and Resilience (SRE)
 
-**Goal:** Handle real-time delivery and domain-specific subsystems. · **Prereqs:** L3, L5.
+**Goal:** Keep systems fast, resilient, and available under failure and load. · **Prereqs:** L3.
 
-| Topic                                             | Status | Related practice problem                   |
-| ------------------------------------------------- | ------ | ------------------------------------------ |
-| Real-time delivery (WebSockets / SSE at scale)    | todo   | WhatsApp chat                              |
-| Push notifications                                | todo   | notification system                        |
-| Geospatial (geohash / quadtree)                   | todo   | Uber location                              |
-| Stream processing (Flink / Kafka Streams / Spark) | todo   | ad-click aggregator, log/metrics analytics |
-| Big data (MapReduce / Hadoop)                     | todo   | web crawler                                |
-| Search & typeahead                                | todo   | typeahead                                  |
-| Recommendation systems                            | todo   | newsfeed, YouTube/Netflix                  |
-| ML system design basics                           | todo   | recommendation, ad-click aggregator        |
+| Topic                                              | Status | Weight |
+| -------------------------------------------------- | ------ | ------ |
+| Rate limiting (token/leaky bucket, sliding window) | todo   | 🟥      |
+| Circuit breakers                                   | todo   | 🟥      |
+| Bulkheads                                          | todo   | 🟧      |
+| Retries with backoff + jitter                      | todo   | 🟥      |
+| Hedged requests (with caveats)                     | todo   | 🟨      |
+| Retry storms                                       | todo   | 🟧      |
+| Load shedding                                      | todo   | 🟧      |
+| Admission control                                  | todo   | 🟧      |
+| Backpressure                                       | todo   | 🟧      |
+| Redundancy and failover                            | todo   | 🟥      |
+| Multi-region and disaster recovery                 | todo   | 🟧      |
+| Graceful degradation                               | todo   | 🟧      |
+| Health checks                                      | todo   | 🟧      |
+| Capacity planning                                  | todo   | 🟧      |
+| Autoscaling                                        | todo   | 🟧      |
+| Deploys (blue-green, canary, rolling, shadow)      | todo   | 🟥      |
+| Progressive delivery + feature flags               | todo   | 🟧      |
+| Chaos engineering                                  | todo   | 🟧      |
+| Incident response / postmortems / on-call         | todo   | 🟧      |
+| Error-budget math                                  | todo   | 🟧      |
+| Platform engineering / internal developer platforms (emerging) | todo | 🟨 |
+| FinOps embedded in provisioning (emerging)         | todo   | 🟨      |
 
-## L9 - Interview Craft & Senior Signal
+## L8. Observability
 
-**Goal:** Run a design interview end-to-end and show senior-level judgment. · **Prereqs:** L0–L4 minimum (more depth = better).
+**Goal:** See inside a running system - measure, trace, and alert on what matters without drowning in cost. · **Prereqs:** L7.
 
-| Topic                                                                                        | Status | Related practice problem |
-| -------------------------------------------------------------------------------------------- | ------ | ------------------------ |
-| The design framework (requirements→estimation→API→data model→HLD→deep-dive→bottlenecks→wrap) | todo   | all L10                  |
-| Driving ambiguity & scoping                                                                  | todo   | all L10                  |
-| Trade-off articulation                                                                       | todo   | all L10                  |
-| Whiteboarding & communication                                                                | todo   | all L10                  |
-| Company flavors (MAANGO variations)                                                          | todo   | all L10                  |
+| Topic                                                     | Status | Weight |
+| --------------------------------------------------------- | ------ | ------ |
+| Metrics (types, cardinality)                              | todo   | 🟥      |
+| High-cardinality metrics management                       | todo   | 🟧      |
+| Structured logging and aggregation                        | todo   | 🟥      |
+| Distributed tracing (OpenTelemetry)                       | todo   | 🟥      |
+| The three pillars (metrics, logs, traces)                 | todo   | 🟥      |
+| Continuous profiling (the "4th pillar") (emerging)        | todo   | 🟨      |
+| RED and USE methods                                       | todo   | 🟧      |
+| Alerting                                                  | todo   | 🟧      |
+| Dashboards                                                | todo   | 🟨      |
+| SLIs                                                      | todo   | 🟧      |
 
-## L10 - Practice Problems
+## L9. Security
 
-**Goal:** Apply everything under interview conditions; each attempt goes in `practice/` and is graded. · **Prereqs:** framework (L9) + the levels each problem exercises (see notes).
+**Goal:** Secure identity, data, and the perimeter; handle abuse, privacy, and compliance. · **Prereqs:** L1.
 
-| Problem                     | Status | Key levels exercised |
-| --------------------------- | ------ | -------------------- |
-| URL shortener               | todo   | L0–L2 (start here)   |
-| Pastebin                    | todo   | L0–L2                |
-| Rate limiter                | todo   | L2, L5               |
-| Twitter / newsfeed          | todo   | L2–L3, L8            |
-| Instagram                   | todo   | L2–L3, L8            |
-| WhatsApp chat               | todo   | L1, L4, L8           |
-| YouTube / Netflix streaming | todo   | L1–L2, L8            |
-| Uber location               | todo   | L3, L8               |
-| Google Drive / Dropbox sync | todo   | L2–L4                |
-| Web crawler                 | todo   | L2, L8               |
-| Typeahead / autocomplete    | todo   | L2, L8               |
-| Notification system         | todo   | L2, L7–L8            |
-| Ticketmaster                | todo   | L2, L4               |
-| Payments / e-commerce       | todo   | L2–L4, L6            |
-| Distributed cache           | todo   | L2–L3                |
-| Job scheduler               | todo   | L2, L4               |
-| Log / metrics analytics     | todo   | L5, L7–L8            |
-| Ad-click aggregator         | todo   | L4, L7–L8            |
-| Leaderboard                 | todo   | L2–L3                |
-| Design Kafka                | todo   | L3–L4                |
-| Design DynamoDB             | todo   | L3–L4                |
+| Topic                                            | Status | Weight |
+| ------------------------------------------------ | ------ | ------ |
+| Authentication vs authorization                  | todo   | 🟥      |
+| OAuth2 / OIDC                                     | todo   | 🟥      |
+| JWT vs sessions                                  | todo   | 🟥      |
+| Cookies                                          | todo   | 🟧      |
+| Password hashing (bcrypt, argon2, salting)      | todo   | 🟧      |
+| HMAC                                             | todo   | 🟧      |
+| TLS / mTLS                                        | todo   | 🟥      |
+| Encryption at rest and in transit                | todo   | 🟥      |
+| Key management and secrets                        | todo   | 🟧      |
+| RBAC / ABAC                                       | todo   | 🟧      |
+| Zero trust                                        | todo   | 🟧      |
+| CORS / CSP                                        | todo   | 🟧      |
+| DDoS mitigation / WAF                             | todo   | 🟧      |
+| API abuse prevention                              | todo   | 🟧      |
+| Threat modeling                                  | todo   | 🟧      |
+| Multi-tenancy                                    | todo   | 🟧      |
+| Privacy and compliance (GDPR, PCI, HIPAA)        | todo   | 🟧      |
+| Passkeys / FIDO2 (emerging)                       | todo   | 🟨      |
+| SBOM / supply-chain security (emerging)          | todo   | 🟨      |
+
+## L10. API and Service Design
+
+**Goal:** Design clean, evolvable, robust interfaces between services and clients. · **Prereqs:** L1.
+
+| Topic                                | Status | Weight |
+| ------------------------------------ | ------ | ------ |
+| REST design and maturity (Richardson) | todo  | 🟥      |
+| Pagination                           | todo   | 🟧      |
+| Versioning                           | todo   | 🟧      |
+| Idempotency keys                     | todo   | 🟥      |
+| gRPC                                 | todo   | 🟧      |
+| GraphQL                              | todo   | 🟧      |
+| Webhooks                             | todo   | 🟧      |
+| Async / long-running APIs            | todo   | 🟧      |
+| API gateways                         | todo   | 🟧      |
+| Backends-for-frontends (BFF)         | todo   | 🟧      |
+| Contract testing                     | todo   | 🟨      |
+
+## L11. Architecture Patterns
+
+**Goal:** Choose and justify system-level structure and data-movement patterns. · **Prereqs:** L2, L5.
+
+| Topic                                                    | Status | Weight |
+| -------------------------------------------------------- | ------ | ------ |
+| Monolith vs microservices vs modular monolith           | todo   | 🟥      |
+| Service discovery                                        | todo   | 🟧      |
+| Service mesh (Envoy, Istio)                              | todo   | 🟧      |
+| Ambient / sidecar-less mesh (emerging)                  | todo   | 🟨      |
+| Event-driven architecture                                | todo   | 🟥      |
+| Outbox pattern                                           | todo   | 🟧      |
+| Serverless / FaaS                                        | todo   | 🟧      |
+| Hexagonal / clean architecture                           | todo   | 🟧      |
+| Strangler-fig pattern                                    | todo   | 🟨      |
+| SOA                                                      | todo   | 🟨      |
+| Cell-based architecture (emerging)                       | todo   | 🟨      |
+| Data pipelines (ETL / ELT / zero-ETL)                    | todo   | 🟧      |
+| Data lakes / warehouses / lakehouse (Iceberg, Delta, Hudi) (emerging) | todo | 🟨 |
+
+## L12. Scalability and Performance Patterns
+
+**Goal:** Apply the concrete techniques that make systems scale reads, writes, and geography. · **Prereqs:** L4, L7.
+
+| Topic                                                              | Status | Weight |
+| ----------------------------------------------------------------- | ------ | ------ |
+| Fan-out on write vs fan-out on read                               | todo   | 🟥      |
+| Read/write splitting                                              | todo   | 🟧      |
+| Geo-distribution / geo-partitioning                              | todo   | 🟧      |
+| Sharding patterns                                                 | todo   | 🟥      |
+| Hot-key mitigation                                               | todo   | 🟧      |
+| Batching                                                         | todo   | 🟧      |
+| Connection pooling                                               | todo   | 🟧      |
+| Probabilistic structures (Bloom filter, HyperLogLog, Count-Min Sketch) | todo | 🟧 |
+| Quotas                                                           | todo   | 🟨      |
+
+## L13. Specialized Systems
+
+**Goal:** Design domain-specific subsystems: real-time, geospatial, search, ML, and AI-serving. · **Prereqs:** L4, L6.
+
+| Topic                                                        | Status | Weight |
+| ------------------------------------------------------------ | ------ | ------ |
+| Real-time delivery at scale (WebSockets/SSE)                 | todo   | 🟥      |
+| Push notifications                                           | todo   | 🟧      |
+| Geospatial (geohash, quadtree, S2)                          | todo   | 🟧      |
+| Search and typeahead (inverted index)                       | todo   | 🟥      |
+| Recommendation systems                                      | todo   | 🟧      |
+| ML system design (feature stores, model serving, inference) | todo   | 🟧      |
+| Big data (MapReduce, Hadoop, Spark)                         | todo   | 🟧      |
+| Real-time analytics / OLAP                                   | todo   | 🟧      |
+| LLM inference serving (vLLM, PagedAttention) (emerging)     | todo   | 🟨      |
+| RAG architecture (routing, reranking, eval-as-CI) (emerging) | todo  | 🟨      |
+| Model routing (emerging)                                     | todo   | 🟨      |
+| GPU scheduling / prefill-decode disaggregation (emerging)   | todo   | 🟨      |
+| Fintech: idempotency + double-entry ledgers                 | todo   | 🟧      |
+| Live-streaming latency-tiered protocols (WebRTC, LL-HLS, RTMP; MOQ emerging) | todo | 🟨 |
+
+## L14. Cloud and Infrastructure
+
+**Goal:** Package, deploy, network, and operate systems on modern cloud and edge platforms. · **Prereqs:** L7.
+
+| Topic                                    | Status | Weight |
+| ---------------------------------------- | ------ | ------ |
+| Containers (Docker)                      | todo   | 🟥      |
+| Orchestration (Kubernetes deep)          | todo   | 🟥      |
+| Infrastructure as code (Terraform)       | todo   | 🟧      |
+| CI/CD                                    | todo   | 🟥      |
+| GitOps                                   | todo   | 🟧      |
+| Cloud primitives                         | todo   | 🟧      |
+| Cloud networking                         | todo   | 🟧      |
+| Cost optimization                        | todo   | 🟧      |
+| Multi-region active-active               | todo   | 🟧      |
+| Edge computing                           | todo   | 🟧      |
+| WASM at the edge (emerging)              | todo   | 🟨      |
+| eBPF (emerging)                          | todo   | 🟨      |
+
+## L15. Applied Design Practice
+
+**Goal:** Apply everything under interview conditions; each attempt goes in `practice/` and is graded. This level carries the **highest interview weight**. · **Prereqs:** L0-L5 minimum, plus the levels each problem exercises.
+
+**Craft (learn before / alongside the problems):**
+
+| Topic                                | Status | Weight |
+| ------------------------------------ | ------ | ------ |
+| The design framework                 | todo   | 🟥      |
+| Driving ambiguity and scoping        | todo   | 🟥      |
+| Trade-off articulation               | todo   | 🟥      |
+| Whiteboarding and communication      | todo   | 🟥      |
+
+**Classic problems:**
+
+| Problem                     | Status | Weight |
+| --------------------------- | ------ | ------ |
+| URL shortener               | todo   | 🟥      |
+| Pastebin                    | todo   | 🟧      |
+| Rate limiter                | todo   | 🟥      |
+| Twitter / newsfeed          | todo   | 🟥      |
+| Instagram                   | todo   | 🟧      |
+| WhatsApp chat               | todo   | 🟥      |
+| YouTube / Netflix streaming | todo   | 🟥      |
+| Uber location               | todo   | 🟧      |
+| Google Drive / Dropbox sync | todo   | 🟧      |
+| Web crawler                 | todo   | 🟧      |
+| Typeahead / autocomplete    | todo   | 🟥      |
+| Notification system         | todo   | 🟧      |
+| Ticketmaster                | todo   | 🟧      |
+| Payments / e-commerce       | todo   | 🟥      |
+| Distributed cache           | todo   | 🟧      |
+| Job scheduler               | todo   | 🟧      |
+| Log / metrics analytics     | todo   | 🟧      |
+| Ad-click aggregator         | todo   | 🟧      |
+| Leaderboard                 | todo   | 🟨      |
+| Design Kafka                | todo   | 🟧      |
+| Design DynamoDB             | todo   | 🟧      |
 
 ---
 
 # Frontend System-Design Track
 
-Parallel/adjacent track. Can start once backend **L0–L1** are `learned` (needs request lifecycle + HTTP/CDN context).
+Parallel/adjacent track. Can start once backend **L0-L1** material exists (needs request lifecycle + HTTP/CDN context).
 
-## FE-L0 - Foundations
+## FE-F. Frontend Fundamentals
 
-**Goal:** Frontend design vocabulary and how the browser turns bytes into pixels. · **Prereqs:** backend L0.
+**Goal:** Understand what the browser and JS runtime actually do so every FE design choice rests on real mechanics, not magic. · **Prereqs:** backend L0-L1.
 
-| Topic                                       | Status | Related practice problem     |
-| ------------------------------------------- | ------ | ---------------------------- |
-| FE system-design framework                  | todo   | all FE-L6                    |
-| Browser rendering / critical rendering path | todo   | video player, live dashboard |
+| Topic                                                                   | Status | Weight |
+| ----------------------------------------------------------------------- | ------ | ------ |
+| JS engine internals (V8, JIT, hidden classes)                           | todo   | 🟥      |
+| Event loop; microtasks vs macrotasks; call stack                        | todo   | 🟥      |
+| Rendering pipeline (parse -> DOM/CSSOM -> render tree -> layout -> paint -> composite) | todo | 🟥 |
+| GPU compositing and layers                                              | todo   | 🟧      |
+| Reflow and repaint                                                      | todo   | 🟥      |
+| Browser memory and garbage collection                                  | todo   | 🟧      |
+| Module systems (ESM vs CommonJS; dual-package hazard)                   | todo   | 🟧      |
+| How CSS works (cascade, specificity, box model)                        | todo   | 🟧      |
+| Browser storage (cookies, localStorage, sessionStorage, IndexedDB, Cache API) | todo | 🟥 |
+| Browser networking (fetch, client-side HTTP caching, preload scanner)  | todo   | 🟧      |
 
-## FE-L1 - Rendering & Delivery
+## FE-L0. Foundations
 
-**Goal:** Choose a rendering strategy and ship assets efficiently. · **Prereqs:** FE-L0, backend L1 (CDN).
+**Goal:** Establish the FE system-design vocabulary and a repeatable framework for designing any UI. · **Prereqs:** FE-F.
 
-| Topic                                    | Status | Related practice problem |
-| ---------------------------------------- | ------ | ------------------------ |
-| CSR / SSR / SSG / ISR / streaming SSR    | todo   | e-commerce PDP           |
-| Hydration & islands                      | todo   | e-commerce PDP           |
-| Bundling / tree-shaking / code-splitting | todo   | design system            |
-| Asset caching & CDN                      | todo   | e-commerce PDP           |
-| Image / font optimization                | todo   | e-commerce PDP           |
+| Topic                                                                                       | Status | Weight |
+| ------------------------------------------------------------------------------------------- | ------ | ------ |
+| FE system-design framework (requirements -> entities -> API contract -> component tree -> data flow -> performance -> a11y/i18n -> wrap) | todo | 🟥 |
+| Component architecture basics                                                               | todo   | 🟥      |
+| Separation of concerns                                                                      | todo   | 🟧      |
+| Critical rendering path recap                                                               | todo   | 🟥      |
 
-## FE-L2 - Data & State
+## FE-L1. Rendering and Delivery
 
-**Goal:** Manage client/server data, caching, and large lists. · **Prereqs:** FE-L1.
+**Goal:** Choose a rendering strategy and ship assets efficiently across the network. · **Prereqs:** FE-L0, backend L1.
 
-| Topic                                            | Status | Related practice problem   |
-| ------------------------------------------------ | ------ | -------------------------- |
-| Client cache vs server cache (React Query / SWR) | todo   | infinite feed              |
-| Normalization                                    | todo   | chat UI                    |
-| Pagination & infinite scroll                     | todo   | infinite feed              |
-| List virtualization                              | todo   | infinite feed, spreadsheet |
-| Optimistic updates                               | todo   | chat UI                    |
-| Prefetching                                      | todo   | infinite feed              |
-| GraphQL vs REST from the client                  | todo   | e-commerce PDP             |
+| Topic                                       | Status | Weight |
+| ------------------------------------------- | ------ | ------ |
+| CSR / SSR / SSG / ISR / streaming SSR       | todo   | 🟥      |
+| React Server Components                     | todo   | 🟧      |
+| Suspense and concurrent rendering           | todo   | 🟧      |
+| Islands architecture / partial hydration    | todo   | 🟧      |
+| Resumability (Qwik) (emerging)              | todo   | 🟨      |
+| Partial prerendering (emerging)             | todo   | 🟨      |
+| View Transitions API (emerging)             | todo   | 🟨      |
+| Edge rendering (emerging)                    | todo   | 🟨      |
+| Server-driven UI (SDUI) - backend ships the component tree/layout (emerging) | todo | 🟧 |
+| Isomorphic / universal rendering            | todo   | 🟧      |
+| Custom renderers / reconcilers (constrained-device UIs, e.g. TV) | todo | 🟨 |
+| Hydration and hydration cost                | todo   | 🟥      |
+| Bundling / tree-shaking / code-splitting    | todo   | 🟥      |
+| Asset caching and CDN                       | todo   | 🟧      |
+| Image and font optimization                 | todo   | 🟧      |
+| Critical CSS                                | todo   | 🟧      |
 
-## FE-L3 - Performance
+## FE-L2. Data and State
 
-**Goal:** Measure and hit performance targets. · **Prereqs:** FE-L1 (FE-L2 helpful).
+**Goal:** Manage client/server data, reactivity, caching, and large lists correctly. · **Prereqs:** FE-L1.
 
-| Topic                             | Status | Related practice problem  |
-| --------------------------------- | ------ | ------------------------- |
-| Core Web Vitals (LCP / INP / CLS) | todo   | e-commerce PDP            |
-| Performance budgets               | todo   | design system             |
-| Debounce / throttle               | todo   | typeahead widget          |
-| Memoization                       | todo   | spreadsheet               |
-| Web workers                       | todo   | spreadsheet, video player |
-| RUM & error tracking              | todo   | live dashboard            |
+| Topic                                                                            | Status | Weight |
+| -------------------------------------------------------------------------------- | ------ | ------ |
+| Client state vs server state                                                     | todo   | 🟥      |
+| Server-cache (TanStack Query / SWR)                                              | todo   | 🟥      |
+| Client stores (Zustand, Jotai, Redux; Zustand-over-Redux trend)                  | todo   | 🟧      |
+| Signals / fine-grained reactivity (Solid, Svelte 5 runes, Angular signals) (emerging) | todo | 🟨 |
+| React Compiler auto-memoization (emerging)                                       | todo   | 🟨      |
+| State machines (XState)                                                          | todo   | 🟨      |
+| URL state                                                                        | todo   | 🟧      |
+| Form state                                                                       | todo   | 🟧      |
+| Normalization                                                                    | todo   | 🟧      |
+| Pagination and infinite scroll                                                   | todo   | 🟥      |
+| List virtualization                                                              | todo   | 🟧      |
+| Optimistic updates                                                               | todo   | 🟧      |
+| Prefetching                                                                      | todo   | 🟧      |
+| Client data fetching (GraphQL vs REST vs tRPC (emerging), Server Actions (emerging)) | todo | 🟧 |
+| BFF pattern                                                                       | todo   | 🟧      |
+| GraphQL Federation / one-graph aggregation for the client                        | todo   | 🟧      |
+| SDUI data contracts (sections/screens/actions schema)                            | todo   | 🟨      |
 
-## FE-L4 - Real-Time & Offline
+## FE-L3. Performance
 
-**Goal:** Build live, offline-capable, collaborative UIs. · **Prereqs:** FE-L2, backend L8 (real-time).
+**Goal:** Measure and hit performance targets that map to real user experience and revenue. · **Prereqs:** FE-L1.
 
-| Topic                                    | Status | Related practice problem |
-| ---------------------------------------- | ------ | ------------------------ |
-| WebSockets / SSE / polling (client-side) | todo   | chat UI, live dashboard  |
-| PWA & service workers                    | todo   | -                        |
-| Offline-first                            | todo   | -                        |
-| IndexedDB                                | todo   | Google Docs editor       |
-| OT / CRDT basics                         | todo   | Google Docs editor       |
+| Topic                                                    | Status | Weight |
+| -------------------------------------------------------- | ------ | ------ |
+| Core Web Vitals (LCP / INP / CLS; INP replaced FID in 2024) | todo | 🟥      |
+| Performance budgets                                      | todo   | 🟧      |
+| Resource hints (preload / prefetch / preconnect)         | todo   | 🟧      |
+| Code-splitting and lazy loading                          | todo   | 🟥      |
+| Critical CSS                                             | todo   | 🟧      |
+| Compression (Brotli)                                     | todo   | 🟧      |
+| Long tasks and scheduler.yield (emerging)                | todo   | 🟨      |
+| Hydration cost                                           | todo   | 🟧      |
+| Debounce and throttle                                    | todo   | 🟧      |
+| Memoization                                             | todo   | 🟧      |
+| Web workers                                             | todo   | 🟧      |
+| Bundle analysis                                          | todo   | 🟧      |
 
-## FE-L5 - Quality & Scale
+## FE-L4. Real-Time, Offline and Collaboration
 
-**Goal:** Ship accessible, international, secure UIs at org scale. · **Prereqs:** FE-L1 (FE-L3 helpful).
+**Goal:** Build live, offline-capable, and collaborative UIs with correct conflict handling. · **Prereqs:** FE-L2, backend L13.
 
-| Topic                                     | Status | Related practice problem |
-| ----------------------------------------- | ------ | ------------------------ |
-| Accessibility (WCAG)                      | todo   | design system            |
-| Internationalization (i18n)               | todo   | design system            |
-| Design systems                            | todo   | design system            |
-| Micro-frontends / module federation       | todo   | -                        |
-| Client security (XSS / CSRF / CSP / CORS) | todo   | e-commerce PDP           |
+| Topic                                                        | Status | Weight |
+| ------------------------------------------------------------ | ------ | ------ |
+| WebSockets / SSE / polling (client-side)                     | todo   | 🟥      |
+| WebRTC                                                       | todo   | 🟧      |
+| WebTransport (emerging)                                      | todo   | 🟨      |
+| CRDT vs OT (Yjs and custom)                                  | todo   | 🟧      |
+| Presence and conflict resolution                             | todo   | 🟧      |
+| PWA and service workers                                      | todo   | 🟧      |
+| Offline-first / local-first (emerging)                       | todo   | 🟨      |
+| IndexedDB and Cache API                                      | todo   | 🟧      |
+| Streaming AI/LLM UI responses (SSE, partial rendering) (emerging) | todo | 🟨   |
 
-## FE-L6 - Problems
+## FE-L5. Tooling, Build and Testing
 
-**Goal:** Apply the FE track under interview conditions; attempts go in `practice/`, graded. · **Prereqs:** FE-L0 + relevant FE levels.
+**Goal:** Build, split, and verify frontends at team and org scale with modern toolchains. · **Prereqs:** FE-L1.
 
-| Problem            | Status | Key levels exercised  |
-| ------------------ | ------ | --------------------- |
-| Typeahead widget   | todo   | FE-L2–L3 (start here) |
-| Infinite feed      | todo   | FE-L2–L3              |
-| Carousel           | todo   | FE-L1, FE-L3          |
-| Google Docs editor | todo   | FE-L4                 |
-| Chat UI            | todo   | FE-L2, FE-L4          |
-| Video player       | todo   | FE-L1, FE-L3          |
-| E-commerce PDP     | todo   | FE-L1–L3, FE-L5       |
-| Design system      | todo   | FE-L1, FE-L5          |
-| Live dashboard     | todo   | FE-L3–L4              |
-| Spreadsheet        | todo   | FE-L2–L3              |
+| Topic                                                          | Status | Weight |
+| -------------------------------------------------------------- | ------ | ------ |
+| Bundlers (Vite/Rolldown, esbuild, Rspack (emerging), Turbopack, webpack) | todo | 🟥 |
+| Monorepos                                                      | todo   | 🟧      |
+| Micro-frontends: what and why (independent deploys, team/org autonomy) | todo | 🟧 |
+| MFE composition: build-time integration (published packages)   | todo   | 🟨      |
+| MFE composition: server-side / edge composition                | todo   | 🟨      |
+| MFE composition: run-time (iframes, JS entry, Web Components)   | todo   | 🟨      |
+| Module Federation (webpack / Rspack)                           | todo   | 🟧      |
+| MFE cross-app routing, communication and shared state          | todo   | 🟧      |
+| MFE style isolation and a shared design system                 | todo   | 🟧      |
+| MFE shared dependency / version management (duplication cost)   | todo   | 🟧      |
+| Micro-frontend trade-offs and when NOT to use them             | todo   | 🟥      |
+| Progressive delivery for frontend bundles (canary + rollback)  | todo   | 🟨      |
+| Testing (unit and integration)                                 | todo   | 🟥      |
+| E2E testing (Playwright)                                        | todo   | 🟧      |
+| Component testing                                              | todo   | 🟧      |
+| Visual regression testing                                      | todo   | 🟨      |
+
+## FE-L6. Accessibility, i18n and Design Systems
+
+**Goal:** Ship accessible, international UIs with a reusable, well-designed component system. · **Prereqs:** FE-L0.
+
+| Topic                                                                              | Status | Weight |
+| ---------------------------------------------------------------------------------- | ------ | ------ |
+| Accessibility (WCAG 2.2, ARIA, focus management, screen readers, keyboard navigation) | todo | 🟥 |
+| Internationalization (i18n) and localization                                       | todo   | 🟧      |
+| Design systems (design tokens, theming, headless/unstyled components e.g. Radix/shadcn) | todo | 🟧 |
+| Component API design                                                               | todo   | 🟧      |
+| Web Components (niche, not a React replacement)                                     | todo   | 🟨      |
+
+## FE-L7. Frontend Observability and Security
+
+**Goal:** See inside the running client and defend it against abuse, leaks, and supply-chain attacks. · **Prereqs:** FE-L3.
+
+| Topic                                            | Status | Weight |
+| ------------------------------------------------ | ------ | ------ |
+| RUM and Core Web Vitals field data               | todo   | 🟧      |
+| Error tracking (Sentry)                          | todo   | 🟧      |
+| Session replay (with privacy scrubbing)          | todo   | 🟨      |
+| Cross-stack error-to-trace correlation           | todo   | 🟨      |
+| Client security (XSS, CSRF, CSP, SRI, CORS)      | todo   | 🟥      |
+| npm supply-chain security (emerging risk)        | todo   | 🟨      |
+| iframe sandboxing                                | todo   | 🟨      |
+
+## FE-L8. Applied Problems
+
+**Goal:** Apply the FE track under interview conditions; attempts go in `practice/` and are graded. This level carries the **highest interview weight**. · **Prereqs:** FE-L0 + the FE levels each problem exercises.
+
+| Problem                                        | Status | Weight |
+| ---------------------------------------------- | ------ | ------ |
+| Typeahead widget                               | todo   | 🟥      |
+| Infinite feed                                  | todo   | 🟥      |
+| Carousel                                       | todo   | 🟧      |
+| Google Docs collaborative editor               | todo   | 🟧      |
+| Chat UI                                        | todo   | 🟥      |
+| Video player (with LL-HLS for low latency)     | todo   | 🟧      |
+| E-commerce PDP (performance as revenue lever)  | todo   | 🟥      |
+| Design system                                  | todo   | 🟧      |
+| Live dashboard                                 | todo   | 🟧      |
+| Spreadsheet                                    | todo   | 🟨      |
+| Collaborative whiteboard                       | todo   | 🟨      |
 
 ---
 
