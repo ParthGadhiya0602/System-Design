@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (4 of 17 done). Next in order:
+> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (5 of 17 done). Next in order:
 >
-> 1. **L1. Networking** - continue in order. Next topic: UDP.
+> 1. **L1. Networking** - continue in order. Next topic: HTTP/1.1, HTTP/2, HTTP/3 (QUIC).
 > 2. Then proceed down the backend track in order (L2+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -102,7 +102,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | IP addressing and subnets                         | ✅     | 🟧     |
 | DNS deep (resolution, records, GeoDNS, caching)   | ✅     | 🟥     |
 | TCP (handshake, flow control, congestion control) | ✅     | 🟥     |
-| UDP                                               | ⚪     | 🟧     |
+| UDP                                               | ✅     | 🟧     |
 | HTTP/1.1, HTTP/2, HTTP/3 (QUIC)                   | ⚪     | 🟥     |
 | HTTPS / TLS handshake                             | ⚪     | 🟥     |
 | WebSockets / SSE / long-polling                   | ⚪     | 🟥     |
