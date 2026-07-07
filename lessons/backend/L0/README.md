@@ -13,7 +13,7 @@ Each lesson is a short, self-contained read (~5-8 min). Work through them in ord
 | 05 | [Back-of-Envelope Estimation](05-back-of-envelope-estimation.md) | Turning "it should be fast" into QPS, storage, and bandwidth math. |
 | 06 | [Latency Numbers Every Engineer Should Know](06-latency-numbers.md) | The order-of-magnitude table that grounds every design in reality. |
 | 07 | [Availability, Reliability, Scalability, Maintainability](07-availability-reliability-scalability-maintainability.md) | The four "-ilities" that define non-functional goals. |
-| 08 | SLA / SLO / SLI | Promises, targets, and the measurements behind them. |
+| 08 | [SLA, SLO, SLI](08-sla-slo-sli.md) | Promises, targets, and the measurements behind them. |
 | 09 | Vertical vs Horizontal Scaling | Bigger machine vs more machines -- and where each hits a wall. |
 | 10 | Percentiles and Tail Latency | Why the average lies and p99 is what users feel. |
 | 11 | Throughput vs Latency | Work-per-second vs time-per-request, and how they trade off. |
