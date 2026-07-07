@@ -2,7 +2,7 @@
 
 *How bytes actually travel. Every system you'll design talks over a network -- this level is the ground truth beneath requests, connections, proxies, and CDNs. Start with the layer map; everything else hangs on it.*
 
-**In progress** -- topics 1-8 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- topics 1-9 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -14,7 +14,7 @@
 | 06 | [HTTP/1.1, HTTP/2, HTTP/3 (QUIC)](06-http-versions.md) | The web's application protocol and how each version killed the last one's bottleneck. | ✅ |
 | 07 | [HTTPS / TLS Handshake](07-https-tls.md) | How two strangers agree on a shared secret and encrypt everything after. | ✅ |
 | 08 | [WebSockets, SSE, Long-Polling](08-websockets-sse-long-polling.md) | Three ways to push server data to a client in near-real-time. | ✅ |
-| 09 | REST vs gRPC vs GraphQL | Three API styles and the trade-offs that decide between them. | ⚪ |
+| 09 | [REST vs gRPC vs GraphQL](09-rest-grpc-graphql.md) | Three API styles and the trade-offs that decide between them. | ✅ |
 | 10 | Sockets | The programming interface where the network stack meets your code. | ⚪ |
 | 11 | Forward and Reverse Proxies | Two intermediaries, opposite directions -- who they front for and why. | ⚪ |
 | 12 | NAT | How many private hosts share one public IP -- and what it breaks. | ⚪ |
