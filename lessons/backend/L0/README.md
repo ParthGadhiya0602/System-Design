@@ -16,7 +16,7 @@ Each lesson is a short, self-contained read (~5-8 min). Work through them in ord
 | 08 | [SLA, SLO, SLI](08-sla-slo-sli.md) | Promises, targets, and the measurements behind them. |
 | 09 | [Vertical vs Horizontal Scaling](09-vertical-vs-horizontal-scaling.md) | Bigger machine vs more machines -- and where each hits a wall. |
 | 10 | [Percentiles and Tail Latency](10-percentiles-and-tail-latency.md) | Why the average lies and p99 is what users feel. |
-| 11 | Throughput vs Latency | Work-per-second vs time-per-request, and how they trade off. |
+| 11 | [Throughput vs Latency](11-throughput-vs-latency.md) | Work-per-second vs time-per-request, and how they trade off. |
 | 12 | Little's Law | The tiny formula linking concurrency, throughput, and latency. |
 | 13 | Universal Scalability Law | Why adding machines eventually stops helping -- and can hurt. |
 

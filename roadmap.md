@@ -89,7 +89,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | SLA / SLO / SLI                                                                  | ✅     | 🟧     |
 | Vertical vs horizontal scaling                                                   | ✅     | 🟥     |
 | Percentiles and tail latency                                                     | ✅     | 🟥     |
-| Throughput vs latency                                                            | ⚪     | 🟥     |
+| Throughput vs latency                                                            | ✅     | 🟥     |
 | Little's Law                                                                     | ⚪     | 🟧     |
 | Universal Scalability Law                                                        | ⚪     | 🟨     |
 
