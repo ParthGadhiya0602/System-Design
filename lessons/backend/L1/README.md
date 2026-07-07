@@ -2,14 +2,14 @@
 
 *How bytes actually travel. Every system you'll design talks over a network -- this level is the ground truth beneath requests, connections, proxies, and CDNs. Start with the layer map; everything else hangs on it.*
 
-**In progress** -- topics 1-3 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- topics 1-4 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
 | 01 | [OSI and TCP/IP Models](01-osi-and-tcp-ip-models.md) | The layer map every later topic hangs on -- and where each protocol lives. | ✅ |
 | 02 | [IP Addressing and Subnets](02-ip-addressing-and-subnets.md) | How hosts are named and grouped, and how a router decides "local or route it." | ✅ |
 | 03 | [DNS Deep](03-dns-deep.md) | Turning names into IPs -- the hierarchy, caching, and record types behind every lookup. | ✅ |
-| 04 | TCP | Reliable, ordered byte streams: the handshake, flow control, and congestion control. | ⚪ |
+| 04 | [TCP](04-tcp.md) | Reliable, ordered byte streams: the handshake, flow control, and congestion control. | ✅ |
 | 05 | UDP | Fire-and-forget datagrams -- when losing "reliable" buys you speed. | ⚪ |
 | 06 | HTTP/1.1, 2, 3 | The web's application protocol and how each version killed the last one's bottleneck. | ⚪ |
 | 07 | HTTPS / TLS Handshake | How two strangers agree on a shared secret and encrypt everything after. | ⚪ |
