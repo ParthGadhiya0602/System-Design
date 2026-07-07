@@ -85,7 +85,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Request lifecycle end-to-end (browser-&gt;DNS-&gt;LB-&gt;server-&gt;DB-&gt;back) | ✅     | 🟥     |
 | Back-of-envelope estimation (QPS / storage / bandwidth)                          | ✅     | 🟥     |
 | Latency numbers every engineer should know                                       | ✅     | 🟥     |
-| Availability, reliability, scalability, maintainability                          | ⚪     | 🟥     |
+| Availability, reliability, scalability, maintainability                          | ✅     | 🟥     |
 | SLA / SLO / SLI                                                                  | ⚪     | 🟧     |
 | Vertical vs horizontal scaling                                                   | ⚪     | 🟥     |
 | Percentiles and tail latency                                                     | ⚪     | 🟥     |
