@@ -44,11 +44,10 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F. Computing Fundamentals is** `done` (concept + verified examples + lesson). Next in order:
+> **F and L0 are** `done` (all 25 foundation lessons written). Next in order:
 >
-> 1. **L0. System-Design Foundations** - the vocabulary and estimation skills every design uses.
-> 2. **L1. Networking** - how traffic reaches and moves through a system.
-> 3. Then proceed down the backend track in order (L2+); interleave the frontend track once backend L0-L1 material exists.
+> 1. **L1. Networking** - how traffic reaches, enters, and moves through a system. First topic: OSI and TCP/IP models.
+> 2. Then proceed down the backend track in order (L2+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
 
@@ -91,7 +90,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Percentiles and tail latency                                                     | ✅     | 🟥     |
 | Throughput vs latency                                                            | ✅     | 🟥     |
 | Little's Law                                                                     | ✅     | 🟧     |
-| Universal Scalability Law                                                        | ⚪     | 🟨     |
+| Universal Scalability Law                                                        | ✅     | 🟨     |
 
 ## L1. Networking
 
