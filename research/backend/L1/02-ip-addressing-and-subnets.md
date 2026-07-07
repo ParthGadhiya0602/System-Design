@@ -35,10 +35,12 @@ This is the single most important idea in this entire topic: **an IP address alo
 
 **IPv4** addresses are **32 bits** long, giving a theoretical address space of 2^32 = **4,294,967,296** (~4.3 billion) unique addresses. For human readability, those 32 bits are split into four 8-bit groups (**octets**), each written as a decimal number 0-255, separated by dots — **dotted-decimal notation**, e.g. `192.168.1.5`.
 
-```
-192       .   168      .    1      .    5
-11000000  .   10101000 .   00000001 .  00000101
-<-------------------- 32 bits total -------------------->
+```mermaid
+flowchart LR
+  subgraph Addr["32 bits total = four 8-bit octets"]
+    direction LR
+    O1["192<br/>11000000"] --- O2["168<br/>10101000"] --- O3["1<br/>00000001"] --- O4["5<br/>00000101"]
+  end
 ```
 
 **Why 4.3 billion ran out:** IPv4 was designed in the late 1970s (RFC 791, 1981) when nobody anticipated billions of individually-networked devices — phones, IoT sensors, every server behind every startup. Address allocation was also historically wasteful (see [classful addressing](#classful-addressing-and-why-it-was-abandoned) below: early allocations handed out huge blocks to single organizations regardless of actual need). IANA allocated the last free top-level IPv4 blocks to regional registries in **2011**; most registries have since exhausted their pools. Three things absorbed the pressure without needing to replace IPv4 network-wide overnight: **CIDR** (allocate exactly the block size needed, not oversized fixed classes), **NAT** (many private hosts share one public address — its own upcoming topic), and the slow, ongoing rollout of **IPv6** (a fundamentally larger address space, covered below).
@@ -179,22 +181,25 @@ Two everyday behaviors depend directly on everything above:
 
 ## Diagram: address split and subnet breakdown
 
+```mermaid
+flowchart LR
+  subgraph A["32-bit address, split by a /26 mask"]
+    direction LR
+    N["Network portion - 26 bits<br/>11000000.10101000.00000001.01"] --- H["Host portion - 6 bits<br/>000000 (the 64-127 range)"]
+  end
 ```
-32-bit IPv4 address, split by a /26 mask:
 
-|<---------------- Network portion (26 bits) ---------------->|<-- Host (6 bits) -->|
- 11000000 . 10101000 . 00000001 . 01      000000
-   192    .   168     .    1    . (64-127 range, subnet-selector bits shown)
+Mask (/26): `11111111.11111111.11111111.11000000` = `255.255.255.192`
 
-Mask   (/26): 11111111.11111111.11111111.11000000  = 255.255.255.192
+Subnetting `192.168.1.0/24` into four /26 blocks:
 
-Subnetting 192.168.1.0/24 into four /26 blocks:
-
-192.168.1.0/24
-+-- 192.168.1.0/26    hosts .1  - .62    broadcast .63
-+-- 192.168.1.64/26   hosts .65 - .126   broadcast .127
-+-- 192.168.1.128/26  hosts .129 - .190  broadcast .191
-+-- 192.168.1.192/26  hosts .193 - .254  broadcast .255
+```mermaid
+flowchart TD
+  A["192.168.1.0/24"]
+  A --> B["192.168.1.0/26<br/>hosts .1 - .62, broadcast .63"]
+  A --> C["192.168.1.64/26<br/>hosts .65 - .126, broadcast .127"]
+  A --> D["192.168.1.128/26<br/>hosts .129 - .190, broadcast .191"]
+  A --> E["192.168.1.192/26<br/>hosts .193 - .254, broadcast .255"]
 ```
 
 ## Trade-offs and common confusions

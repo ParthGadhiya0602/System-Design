@@ -34,18 +34,17 @@ _TCP spends a round trip and a pile of state manufacturing guarantees before it 
 
 UDP's header is **8 bytes, fixed size, four fields, each exactly 16 bits** — contrast with TCP's minimum 20 bytes (commonly 32+ with options) and its dozen-plus fields for sequence numbers, ack numbers, window size, flags, and options. UDP is deliberately this thin because it has nothing else to say: no sequence number (nothing is being tracked in order), no ack number (nothing is being acknowledged), no window (no flow control), no flags (no connection states to signal) — every field TCP carries that UDP lacks corresponds exactly to a guarantee UDP doesn't make.
 
-```
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Source Port          |       Destination Port       |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|             Length            |            Checksum          |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                                                               |
-|                      Data (the payload)                      |
-|                                                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```mermaid
+flowchart TB
+  subgraph B0["Bytes 0-3 (bits 0-31)"]
+    direction LR
+    SP["Source Port<br/>16 bits"] --- DP["Destination Port<br/>16 bits"]
+  end
+  subgraph B4["Bytes 4-7 (bits 32-63)"]
+    direction LR
+    LEN["Length<br/>16 bits"] --- CK["Checksum<br/>16 bits"]
+  end
+  B0 --> B4 --> DATA["Data (the payload)"]
 ```
 
 - **Source port (16 bits)** — the sending process's port, exactly the same concept as TCP's source port (introduced in [04-tcp.md](04-tcp.md#where-tcp-sits-and-the-4-tuple)). It's technically optional in UDP's own semantics (RFC 768 allows it to be zero if no reply is expected), but in practice virtually every OS socket API fills it in so a reply can find its way back.

@@ -97,13 +97,11 @@ A certificate answers: *how does the client know this public key really belongs 
 - Trust flows through a **chain: root CA -> intermediate CA -> leaf**. A **root CA** cert (self-signed, pre-installed in your OS/browser's **root store**) signs intermediates; an intermediate signs the **leaf** cert your server presents.
 - During the handshake the server sends the leaf plus intermediates; the client verifies each signature **link by link up to a root it already trusts**. Any broken link -- expired, wrong domain, untrusted issuer -- triggers the "connection is not private" warning.
 
-```
-Root CA  (in your browser's trust store, self-signed)
-   |  signs
-Intermediate CA
-   |  signs
-Leaf certificate  (example.com's public key + domain)
-   ^ server presents leaf + intermediate; client walks UP to the trusted root
+```mermaid
+flowchart TD
+    Root["Root CA<br/>(self-signed, in browser trust store)"] -->|signs| Inter["Intermediate CA"]
+    Inter -->|signs| Leaf["Leaf certificate<br/>(example.com public key + domain)"]
+    Note["Server presents leaf + intermediate,<br/>client verifies each link UP to the trusted root"]
 ```
 
 Copying a public certificate isn't enough to impersonate a server -- the handshake forces a cryptographic operation only the real **private-key** holder can complete.

@@ -66,17 +66,18 @@ Each version was designed to fix exactly one bottleneck in the version before it
 - **Streams + multiplexing** -- one TCP connection carries many concurrent **streams**. Fire `/a`, `/b`, `/c` together; the server sends back whichever is ready first, in any order. This kills the app-layer HOL blocking that doomed pipelining -- and makes 6 connections, sharding, spriting all unnecessary.
 - **HPACK header compression** -- headers repeat constantly (same `Cookie`, `User-Agent`...). HPACK keeps a shared table on both ends so a repeated header is sent as a tiny index instead of full text.
 
-```
-HTTP/1.1  (6 connections, one request in flight per connection)
-Conn1: --[req A]----[resp A]----[req D]----[resp D]--
-Conn2: --[req B]-------[resp B]----[req E]-----------
-Conn3: --[req C]--[resp C]---------------------------
-       (each connection: strictly one request at a time)
-
-HTTP/2  (1 connection, streams multiplexed, frames interleaved)
-Conn1: --[A:HEADERS][B:HEADERS][C:HEADERS][A:DATA][C:DATA][B:DATA]--
-       (streams A, B, C all in flight on ONE TCP connection;
-        server sends whichever stream's data is ready first)
+```mermaid
+flowchart TB
+    subgraph H1["HTTP/1.1 — 6 connections, one request in flight per connection"]
+        A1["Conn 1: req A → resp A → req D → resp D"]
+        B1["Conn 2: req B → resp B → req E"]
+        C1["Conn 3: req C → resp C"]
+        N1["Each connection: strictly one request at a time"]
+    end
+    subgraph H2["HTTP/2 — 1 TCP connection, streams multiplexed, frames interleaved"]
+        D1["Conn 1: A:HEADERS · B:HEADERS · C:HEADERS · A:DATA · C:DATA · B:DATA"]
+        N2["Streams A, B, C all in flight on ONE connection, server sends whichever is ready first"]
+    end
 ```
 
 **The catch it can't fix:** all those streams share **one TCP connection**, and TCP guarantees strict in-order byte delivery. So if **one TCP segment is lost**, the OS withholds *every byte that arrived after it* -- for **all** streams -- until that gap is retransmitted (recall [TCP HOL blocking, topic 4](04-tcp.md#head-of-line-blocking)). Stream A's and C's data may have arrived perfectly, but the kernel won't hand *any* of it to the browser until stream B's lost packet is refilled. HTTP/2 didn't remove HOL blocking -- it **moved it down from the app layer to the TCP layer**, and arguably made it worse (more requests now ride the one connection that can stall).

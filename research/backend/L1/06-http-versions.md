@@ -65,17 +65,27 @@ Every one of these is a workaround for one root cause: **HTTP/1.1 could only use
 - **Server push (largely deprecated in practice, `verify`)** — HTTP/2 allowed a server to proactively send resources the client hadn't asked for yet (e.g. pushing `style.css` alongside `index.html` because the server knows the browser will need it next), skipping a round trip. In practice this turned out to interact poorly with browser caching (the server has no idea what the client already has cached, so push often wasted bandwidth pushing already-cached assets) and was hard to tune correctly; major browsers have deprecated or removed support for it, with cache-aware alternatives like `Link: rel=preload` headers or 103 Early Hints generally preferred instead — `verify` current per-browser support status precisely.
 - **Stream prioritization** — a client can hint at the relative priority/dependency of its streams (e.g. "the CSS blocking render matters more than this background image"), letting a server allocate bandwidth/CPU order accordingly on the shared connection. In practice, prioritization schemes proved complex and inconsistently implemented; HTTP/2's original priority tree was largely reworked/simplified in later efforts (`verify` current standardized approach, e.g. RFC 9218 "Extensible Priorities").
 
-```
-HTTP/1.1  (6 connections, serial per connection)
-Conn1: ──[req A]────[resp A]────[req D]────[resp D]──
-Conn2: ──[req B]───────[resp B]────[req E]────────────
-Conn3: ──[req C]──[resp C]────────────────────────────
-       (each connection: strictly one request in flight at a time)
-
-HTTP/2  (1 connection, multiplexed streams, frames interleaved)
-Conn1: ──[A:HEADERS][B:HEADERS][C:HEADERS][A:DATA][C:DATA][B:DATA]──
-       (streams A, B, C all in flight concurrently on the same TCP connection;
-        server sends whichever stream's data is ready first, in any order)
+```mermaid
+flowchart TB
+    subgraph H1["HTTP/1.1: 6 connections, one request in flight per connection"]
+        direction TB
+        subgraph HC1["Conn1"]
+            direction LR
+            a1["req A"] --> a2["resp A"] --> a3["req D"] --> a4["resp D"]
+        end
+        subgraph HC2["Conn2"]
+            direction LR
+            b1["req B"] --> b2["resp B"] --> b3["req E"]
+        end
+        subgraph HC3["Conn3"]
+            direction LR
+            c1["req C"] --> c2["resp C"]
+        end
+    end
+    subgraph H2["HTTP/2: 1 connection, streams A-B-C interleaved, server sends whichever data is ready first"]
+        direction LR
+        f1["A: HEADERS"] --> f2["B: HEADERS"] --> f3["C: HEADERS"] --> f4["A: DATA"] --> f5["C: DATA"] --> f6["B: DATA"]
+    end
 ```
 
 ## HTTP/2's remaining flaw: TCP-level head-of-line blocking

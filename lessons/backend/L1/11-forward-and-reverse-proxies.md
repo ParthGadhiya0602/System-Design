@@ -48,10 +48,12 @@ Same job -- an intermediary relaying the conversation -- but the assistant hides
 
 Sits in front of a group of **clients**, representing them to the internet. The client is configured (explicitly, or transparently intercepted on its network) to send outbound traffic through the proxy. From the destination's view, the request came from the **proxy's IP** -- it never sees the real client.
 
-```
-[Client A] \
-[Client B] --->  Forward Proxy  --->  Internet  --->  [Destination Server]
-[Client C] /       (client's IP hidden; server sees the proxy)
+```mermaid
+flowchart LR
+    CA[Client A] --> FP
+    CB[Client B] --> FP
+    CC[Client C] --> FP
+    FP["Forward Proxy<br/>client's IP hidden"] --> I[Internet] --> D[Destination Server]
 ```
 
 The clients know about it; the destination usually doesn't. Typical uses:
@@ -65,11 +67,14 @@ The clients know about it; the destination usually doesn't. Typical uses:
 
 Sits in front of a **backend pool**, representing them to clients. The client sends its request to what it believes is "the server" -- no client-side config is required or even possible -- and the reverse proxy decides which backend handles it, then relays the response. The backends often aren't even reachable directly from the internet; the proxy is the only public door.
 
-```
-[Client X] \                        /---> [Backend 1]
-[Client Y] --->  Reverse Proxy  ---+----> [Backend 2]
-[Client Z] /   (backends' IPs      \---> [Backend 3]
-                hidden; client sees only the proxy)
+```mermaid
+flowchart LR
+    CX[Client X] --> RP
+    CY[Client Y] --> RP
+    CZ[Client Z] --> RP
+    RP["Reverse Proxy<br/>backends' IPs hidden,<br/>client sees only the proxy"] --> B1[Backend 1]
+    RP --> B2[Backend 2]
+    RP --> B3[Backend 3]
 ```
 
 **The centralization win:** because *every* request funnels through this one point, it's where you put every cross-cutting concern -- so each backend can stay simple and just do business logic:

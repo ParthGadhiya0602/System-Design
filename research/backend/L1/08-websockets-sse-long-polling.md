@@ -39,16 +39,18 @@ Every technique below is a rung on a ladder, each one getting closer to true, lo
 
 The simplest possible answer: make the client ask over and over, on a timer.
 
-```
-Client                          Server
-  |--- GET /messages/new ------->|
-  |<-- 200 [] (nothing new) -----|
-  (wait 3s)
-  |--- GET /messages/new ------->|
-  |<-- 200 [] (nothing new) -----|
-  (wait 3s)
-  |--- GET /messages/new ------->|
-  |<-- 200 [{msg}] --------------|   <- update finally arrives, up to 3s late
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: GET /messages/new
+    S->>C: 200 [] (nothing new)
+    Note over C: wait 3s
+    C->>S: GET /messages/new
+    S->>C: 200 [] (nothing new)
+    Note over C: wait 3s
+    C->>S: GET /messages/new
+    S->>C: 200 [{msg}] — update arrives, up to 3s late
 ```
 
 **How it works:** the client sets an interval (e.g. `setInterval`, every 2-5 seconds) and issues a normal, ordinary HTTP request each time, asking "anything new since my last check?" The server answers immediately with either an empty result or whatever changed, and the connection closes (or is reused via keep-alive, but the request/response cycle itself completes instantly either way).
@@ -66,15 +68,16 @@ Short polling never actually solves the push problem — it just resells the *pu
 
 The first real trick, and the classic pre-WebSocket fallback: instead of the server answering instantly with "nothing yet," it **holds the request open and delays the response** until there actually is something to say (or a timeout is hit).
 
-```
-Client                                  Server
-  |--- GET /messages/poll -------------->|
-  |         (server holds the request open, no response yet)
-  |         ... time passes, nothing to send yet ...
-  |         ... new message arrives! ...
-  |<-- 200 [{msg}] -----------------------|   <- responds the instant data exists
-  |--- GET /messages/poll -------------->|   <- client immediately reconnects
-  |         (holds again...)
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: GET /messages/poll
+    Note over S: holds the request open, no response yet
+    Note over S: time passes... new message arrives!
+    S->>C: 200 [{msg}] — responds the instant data exists
+    C->>S: GET /messages/poll (client immediately reconnects)
+    Note over S: holds again...
 ```
 
 **How it works internally:** the client issues an ordinary HTTP request exactly like short polling, but the server, instead of checking a database and replying in milliseconds, **does not send a response right away**. The server-side request handler is parked (often on a dedicated thread, or registered as a callback/promise against some internal event source) waiting for either (a) new data to become available, at which point it immediately writes the response and the TCP connection's request/response cycle completes, or (b) an internal timeout (commonly 20-60 seconds, `verify` typical production values, tunable) expires, at which point the server sends an empty response anyway just to avoid an intermediary or client silently killing an indefinitely-idle connection. The instant the client receives any response — data or empty timeout — it immediately opens a brand new long-poll request to keep the cycle going.

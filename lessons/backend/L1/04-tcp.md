@@ -85,12 +85,10 @@ Two optimizations exist so you don't wait for a full timeout on every loss: **fa
 
 This is the single most-confused point in TCP. Hold it precisely: **two independent limits, protecting two different things.**
 
-```
-             What the RECEIVER can hold        What the NETWORK can carry
-                    rwnd  (told)                   cwnd  (learned)
-                        \                             /
-                         \                           /
-                          →  sender sends min(cwnd, rwnd)  ←
+```mermaid
+flowchart TD
+  R["What the RECEIVER can hold<br/>rwnd (told)"] --> M["sender sends min(cwnd, rwnd)"]
+  N["What the NETWORK can carry<br/>cwnd (learned)"] --> M
 ```
 
 **Flow control -- `rwnd`, protects the receiver.** Every ACK carries a **receive window** (`rwnd`): "here's how much buffer I have free -- don't send more than this without hearing from me." As the app reads its buffer, later ACKs advertise a bigger window: the **sliding window** slides forward.

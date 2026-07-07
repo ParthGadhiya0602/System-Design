@@ -72,14 +72,17 @@ Notice the pattern: **every field TCP carries that UDP lacks corresponds exactly
 
 UDP's header is fixed at **8 bytes: four 16-bit fields**, nothing else.
 
-```
-+----------------+----------------+
-|  Source Port   | Destination Port|
-+----------------+----------------+
-|     Length     |    Checksum     |
-+----------------+----------------+
-|          Data (payload)         |
-+----------------+----------------+
+```mermaid
+flowchart TB
+  subgraph B0["Bytes 0-3"]
+    direction LR
+    SP["Source Port (16 bits)"] --- DP["Destination Port (16 bits)"]
+  end
+  subgraph B4["Bytes 4-7"]
+    direction LR
+    LEN["Length (16 bits)"] --- CK["Checksum (16 bits)"]
+  end
+  B0 --> B4 --> DATA["Data (payload)"]
 ```
 
 - **Source port** -- who sent it (so a reply can find its way back).

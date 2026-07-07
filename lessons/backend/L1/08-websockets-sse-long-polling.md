@@ -64,13 +64,15 @@ Still genuinely fine for infrequent, low-stakes checks (build status every 30s).
 
 Instead of replying "nothing yet" instantly, the server **parks the request** and delays the response until data actually exists (or a timeout, commonly ~20-60s, fires). The instant the client gets any response, it immediately opens a fresh long-poll.
 
-```
-Client                                  Server
-  |--- GET /messages/poll -------------->|
-  |         (server holds it open, no reply yet)
-  |         ... new message arrives! ...
-  |<-- 200 [{msg}] -----------------------|   <- replies the instant data exists
-  |--- GET /messages/poll -------------->|   <- client immediately reconnects
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: GET /messages/poll
+    Note over S: holds the request open, no reply yet
+    Note over S: ... new message arrives! ...
+    S->>C: 200 [{msg}] (replies the instant data exists)
+    C->>S: GET /messages/poll (client immediately reconnects)
 ```
 
 **Fixes:** near-real-time delivery over **nothing but plain HTTP** -- which is why it's the universal fallback that works through every proxy/firewall ever built.

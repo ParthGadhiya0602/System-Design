@@ -30,10 +30,12 @@ A **proxy** (from the same root as "proxy vote" — someone acting *on behalf of
 
 A **forward proxy** sits in front of a group of **clients**, representing *them* to the outside internet. The client is explicitly (or transparently) configured to send its outbound traffic through the proxy rather than directly to the destination server. From the destination server's point of view, the request came from the proxy's IP address — the server never sees the real client's address at all, unless the proxy chooses to reveal it in a header.
 
-```
-[Client A] \
-[Client B] --->  Forward Proxy  --->  Internet  --->  [Destination Server]
-[Client C] /
+```mermaid
+flowchart LR
+    A["Client A"] --> FP["Forward Proxy"]
+    B["Client B"] --> FP
+    C["Client C"] --> FP
+    FP --> NET["Internet"] --> DS["Destination Server"]
 ```
 
 The clients know about (and are configured to use) the proxy; the destination server generally does **not** know a proxy was involved at all — from its perspective, it's just talking to one particular client IP (which happens to be the proxy's).
@@ -50,11 +52,14 @@ The clients know about (and are configured to use) the proxy; the destination se
 
 A **reverse proxy** sits in front of a group of **servers** (a "backend pool" or "upstream pool"), representing *them* to the outside clients. The client sends its request to what it believes is the server (often the client has no idea a proxy is involved at all — no client-side configuration is required or even possible), and the reverse proxy decides which actual backend server handles the request, then relays the response back.
 
-```
-[Client X] \
-[Client Y] --->  Reverse Proxy  --->  [Backend 1]
-[Client Z] /            \----------->  [Backend 2]
-                          \----------->  [Backend 3]
+```mermaid
+flowchart LR
+    X["Client X"] --> RP["Reverse Proxy"]
+    Y["Client Y"] --> RP
+    Z["Client Z"] --> RP
+    RP --> B1["Backend 1"]
+    RP --> B2["Backend 2"]
+    RP --> B3["Backend 3"]
 ```
 
 The client does not know (and does not configure) anything about the backends — it just has one address (a domain name, resolved via DNS to the proxy's IP) that it always talks to. The backends, likewise, may not even be reachable directly from the internet at all; the reverse proxy is the only public entry point.

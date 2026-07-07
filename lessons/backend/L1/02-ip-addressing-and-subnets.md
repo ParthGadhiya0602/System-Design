@@ -54,17 +54,25 @@ The catch the postal analogy hides: on an IP address, **where the street name en
 
 To find which network an address belongs to, a device does a **bitwise AND** of the address with the mask. Where the mask bit is `1`, the address bit is kept; where it's `0`, the result is `0`. What's left is the **network address**.
 
+A `/26` mask draws the network|host boundary 26 bits in, leaving 6 bits for the host:
+
+```mermaid
+flowchart LR
+  subgraph addr["32-bit IPv4 address, split by a /26 mask"]
+    direction LR
+    N["Network portion (26 bits)<br/>11000000.10101000.00000001.11"]
+    H["Host (6 bits)<br/>001000"]
+    N --- H
+  end
 ```
-32-bit IPv4 address, split by a /26 mask:
 
-|<-------------- Network portion (26 bits) ------------->|<- Host (6 bits) ->|
- 11000000 . 10101000 . 00000001 . 11        001000
-   192    .   168     .    1    . (top 2 bits select subnet | bottom 6 = host)
+The bitwise AND that finds the network address:
 
-  Address:    192.168.1.200  = 11000000.10101000.00000001.11001000
-  Mask (/26): 255.255.255.192 = 11111111.11111111.11111111.11000000
-  AND ------------------------------------------------------------------
-  Network:    192.168.1.192   = 11000000.10101000.00000001.11000000
+```
+Address:    192.168.1.200  = 11000000.10101000.00000001.11001000
+Mask (/26): 255.255.255.192 = 11111111.11111111.11111111.11000000
+AND -----------------------------------------------------------------
+Network:    192.168.1.192   = 11000000.10101000.00000001.11000000
 ```
 
 Every host, switch, and router runs this AND to answer one question: *is the destination on my own network, or do I hand it to my gateway?* It costs a handful of CPU cycles -- which is why subnet math lives in binary and decimal is just the human veneer.

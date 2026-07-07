@@ -41,14 +41,15 @@ Referencing L1 topic 1's layered model: DNS is an **application-layer protocol**
 
 DNS names form an inverted tree, read right-to-left in terms of authority:
 
-```
-                    "." (root)
-                   /    |    \
-               .com   .org   .uk (ccTLD)
-                /
-          example.com          <- second-level domain (registered by an org)
-           /        \
-        www.example.com   api.example.com   <- subdomains
+```mermaid
+flowchart TD
+  root["'.' (root)"]
+  root --> com[".com"]
+  root --> org[".org"]
+  root --> uk[".uk (ccTLD)"]
+  com --> example["example.com<br/>second-level domain (registered by an org)"]
+  example --> www["www.example.com<br/>subdomain"]
+  example --> api["api.example.com<br/>subdomain"]
 ```
 
 - **Root ("."):** the top of the tree. Every fully-qualified domain name technically ends with a trailing dot representing the root — `www.example.com.` — which is almost always omitted in everyday use but is what a resolver actually queries against internally. The root zone is served by **13 named root server letters (a.root-servers.net through m.root-servers.net)**; each letter is not a single physical machine but is served from many physical/anycast locations worldwide (forward-ref Anycast/BGP topic — this is one of the canonical uses of anycast).

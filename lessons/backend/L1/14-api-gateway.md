@@ -60,26 +60,31 @@ Each is a full topic elsewhere; here's just enough to see *why the gateway is th
 
 Mechanically, a request moves through a **pipeline of stages** (middleware/plugins in a defined order), each able to inspect, modify, or **reject** before the next:
 
+```mermaid
+flowchart LR
+    M[Mobile] --> GW
+    W[Web] --> GW
+    P[Partner API] --> GW
+    subgraph GW["API Gateway"]
+        direction TB
+        S1["TLS term."] --> S2["Auth (JWT/key)"] --> S3["Rate limit check"] --> S4["Routing (path/version)"]
+        S5["Transform (rewrite)"] --> S6["Aggregate (fan-out)"] --> S7["Observability (trace ID)"]
+    end
+    GW --> O[Orders]
+    GW --> U[Users]
+    GW --> Sh[Shipping]
 ```
-                       ┌───────────── API Gateway ─────────────┐
-Clients                │  TLS      Auth      Rate     Routing   │      Backend services
-(mobile, web,  ──────► │  term.    (JWT/key) limit    (path/    │ ───► ┌──────────┐
- partner API)          │                     check    version)  │  ┌─► │ Orders   │
-                       │                                        │  │   └──────────┘
-                       │  Transform  Aggregate  Observability   │──┤   ┌──────────┐
-                       │  (rewrite)  (fan-out)  (trace ID)      │  ├─► │ Users    │
-                       └────────────────────────────────────────┘  │   └──────────┘
-                                                                    │   ┌──────────┐
-                                                                    └─► │ Shipping │
-                                                                        └──────────┘
 
 Without a gateway -- the alternative:
 
-Clients ──────────────►  Orders service    (own auth, own rate limit, own TLS...)
-        ──────────────►  Users service     (own auth, own rate limit, own TLS...)
-        ──────────────►  Shipping service  (own auth, own rate limit, own TLS...)
-   clients must know every address; every service duplicates the same plumbing
+```mermaid
+flowchart LR
+    C[Clients] --> O["Orders service<br/>own auth, rate limit, TLS..."]
+    C --> U["Users service<br/>own auth, rate limit, TLS..."]
+    C --> S["Shipping service<br/>own auth, rate limit, TLS..."]
 ```
+
+Clients must know every address; every service duplicates the same plumbing.
 
 A request **fails fast** at whichever stage rejects it -- an invalid token never reaches routing; an over-quota client never reaches a backend. The more failures the gateway catches early, the more backend capacity is protected for genuine traffic.
 

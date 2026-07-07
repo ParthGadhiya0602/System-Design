@@ -61,32 +61,27 @@ The **Berkeley sockets API** (from 4.2BSD, early 1980s) is the standard set of s
 
 **Client:** `socket()` → `connect()` (**this triggers the TCP three-way handshake**, [04-tcp.md](04-tcp.md#the-three-way-handshake)) → `send()`/`recv()` → `close()`.
 
-```
-      SERVER (fd table)                              CLIENT
-      ------------------                              ------
-      socket()  -> fd 3
-      bind(fd 3, :443)
-      listen(fd 3, backlog=128)
-      [fd 3 is now a LISTENING socket]
-
-                                                     socket() -> fd 3
-                                                     connect(fd 3, server:443)
-                      <---------- SYN ------------------
-      [kernel: half-open entry in SYN queue]
-                      ----------- SYN-ACK ------------->
-                      <---------- ACK ------------------
-      [kernel moves entry to the accept queue]
-                                                     connect() RETURNS
-                                                     (handshake done)
-
-      accept(fd 3) -> fd 7
-      [fd 7 = NEW CONNECTED socket;
-       fd 3 stays listening, untouched]
-
-      recv(fd 7)   <------ request bytes -------  send(fd 3, request)
-      send(fd 7)   ------- response bytes ------> recv(fd 3)
-
-      close(fd 7)  <---- FIN/ACK teardown ---->   close(fd 3)
+```mermaid
+sequenceDiagram
+    participant Sv as Server
+    participant Cl as Client
+    Note over Sv: socket() → fd 3
+    Note over Sv: bind(fd 3, :443)
+    Note over Sv: listen(fd 3, backlog=128)<br/>fd 3 is now a LISTENING socket
+    Note over Cl: socket() → fd 3
+    Note over Cl: connect(fd 3, server:443)
+    Cl->>Sv: SYN
+    Note over Sv: kernel: half-open entry in SYN queue
+    Sv->>Cl: SYN-ACK
+    Cl->>Sv: ACK
+    Note over Sv: kernel moves entry to the accept queue
+    Note over Cl: connect() RETURNS (handshake done)
+    Note over Sv: accept(fd 3) → fd 7<br/>NEW CONNECTED socket, fd 3 stays listening
+    Cl->>Sv: send(fd 3, request) → request bytes
+    Note over Sv: recv(fd 7)
+    Sv->>Cl: send(fd 7) → response bytes
+    Note over Cl: recv(fd 3)
+    Note over Sv,Cl: close(fd 7) / close(fd 3) — FIN/ACK teardown
 ```
 
 Note *where the handshake happens*: entirely **inside `connect()`** on the client, and **inside the kernel, before `accept()` is even called**, on the server. `accept()` performs *no part* of the handshake -- it only dequeues a connection the kernel already completed. (That's why a slow app that isn't calling `accept()` fast enough can still have its backlog fill up with fully-handshaked, waiting connections.)

@@ -100,14 +100,13 @@ Distribution only helps if the backends are alive; an LB that keeps feeding a de
 
 **Ejection and re-entry:** an unhealthy backend just stops being a candidate the algorithm can pick; the LB keeps checking it and re-admits it once healthy again -- so a crashed-and-restarted server rejoins automatically, no human involved.
 
-```
-                        VIP (one stable address)
-   Client --request-->  [ Load Balancer ]
-                          |    |    |   \___ active probe: GET /health
-                (algorithm-selected, healthy only)
-                          v    v    v
-                    [Back A] [Back B] [Back C]
-                    healthy  healthy  UNHEALTHY -> ejected
+```mermaid
+flowchart TD
+    C[Client] -->|request| LB["Load Balancer<br/>VIP - one stable address"]
+    LB -->|"algorithm-selected, healthy only"| A["Backend A · healthy"]
+    LB --> B["Backend B · healthy"]
+    LB -.->|"ejected"| X["Backend C · UNHEALTHY"]
+    LB -.->|"active probe: GET /health"| A
 ```
 
 ### Sticky sessions + keeping the LB itself alive
@@ -121,8 +120,12 @@ Stickiness is done via a **cookie (L7)**, **IP hash**, or **consistent hashing**
 
 **And the LB itself must be HA.** A single LB instance is a single point of failure -- if it dies, a perfectly healthy pool is unreachable. Fixes: **active-passive pairs with a floating VIP** (VRRP-style failover), **active-active** instances, **health-checked DNS**, or **anycast** (forward-ref [16-anycast-bgp.md](16-anycast-bgp.md)). Real systems layer it:
 
-```
-Client -> DNS/GSLB (nearest healthy region) -> L4 LB (fast, coarse) -> L7 LB (content-aware, TLS) -> backend pool
+```mermaid
+flowchart LR
+    C[Client] --> D["DNS/GSLB<br/>nearest healthy region"]
+    D --> L4["L4 LB<br/>fast, coarse"]
+    L4 --> L7["L7 LB<br/>content-aware, TLS"]
+    L7 --> P[Backend pool]
 ```
 
 Each tier solves a different scale-vs-precision trade-off, pushing expensive per-request work down to only the tier that needs it.

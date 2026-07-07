@@ -68,34 +68,27 @@ A client's path is shorter, because it never listens or accepts - it only ever h
 
 ## Sequence diagram: the full syscall dance
 
-```
-      SERVER (fd table)                              CLIENT
-      ------------------                              ------
-      socket()  -> fd 3
-      bind(fd 3, :443)
-      listen(fd 3, backlog=128)
-      [fd 3 is now a LISTENING socket]
-
-                                                       socket() -> fd 3
-                                                       connect(fd 3, server:443)
-                        <---------- SYN ------------------
-      [kernel places half-open entry
-       in SYN queue for fd 3]
-                        ----------- SYN-ACK -------------->
-                        <---------- ACK -------------------
-      [kernel moves entry from SYN queue
-       to the completed "accept queue" for fd 3]
-                                                       connect() RETURNS
-                                                       (3-way handshake now done)
-
-      accept(fd 3) -> fd 7
-      [fd 7 is a NEW CONNECTED socket,
-       fd 3 remains listening, untouched]
-
-      recv(fd 7)   <----------- request bytes ---------  send(fd 3, request)
-      send(fd 7, response) ------ response bytes ------>  recv(fd 3)
-
-      close(fd 7)             <-- FIN/ACK teardown -->    close(fd 3)
+```mermaid
+sequenceDiagram
+    participant Sv as Server
+    participant Cl as Client
+    Note over Sv: socket() → fd 3
+    Note over Sv: bind(fd 3, :443)
+    Note over Sv: listen(fd 3, backlog=128)<br/>fd 3 is now a LISTENING socket
+    Note over Cl: socket() → fd 3
+    Note over Cl: connect(fd 3, server:443)
+    Cl->>Sv: SYN
+    Note over Sv: kernel places half-open entry in SYN queue
+    Sv->>Cl: SYN-ACK
+    Cl->>Sv: ACK
+    Note over Sv: kernel moves entry to the accept queue
+    Note over Cl: connect() RETURNS (handshake done)
+    Note over Sv: accept(fd 3) → fd 7<br/>NEW CONNECTED socket, fd 3 stays listening
+    Cl->>Sv: send(fd 3, request) → request bytes
+    Note over Sv: recv(fd 7)
+    Sv->>Cl: send(fd 7) → response bytes
+    Note over Cl: recv(fd 3)
+    Note over Sv,Cl: close(fd 7) / close(fd 3) — FIN/ACK teardown
 ```
 
 Note precisely where the handshake happens: entirely **inside `connect()`** on the client side, and **inside the kernel, before `accept()` is even called**, on the server side - `accept()` does not perform the handshake, it only dequeues a connection whose handshake the kernel already finished. This is why a very slow or blocked application (one that isn't calling `accept()` often enough) can still have its backlog queue fill up with fully-handshaked, waiting connections - the handshake and the application's readiness to consume the connection are decoupled by that queue.

@@ -46,19 +46,19 @@ The heart of NAT is a table that maps an internal (private IP, private port) pai
 2. The NAT device receives the reply, looks up `203.0.113.5:40000` in its translation table, finds the matching entry, and rewrites the **destination** back to `192.168.1.10:54321`.
 3. The packet is delivered internally to the correct host and port, exactly as if nothing happened from the application's point of view.
 
-```
-OUTBOUND
-  Internal host                NAT device                  Internet
-  192.168.1.10:54321  ----->  [rewrite src]  ----->  dst 93.184.216.34:443
-                                src: 203.0.113.5:40000
-
-  Translation table entry created:
-  192.168.1.10:54321  <---->  203.0.113.5:40000
-
-RETURN
-  Internet                     NAT device                  Internal host
-  93.184.216.34:443  ----->  [lookup + rewrite dst]  ----->  192.168.1.10:54321
-                              dst: 192.168.1.10:54321
+```mermaid
+sequenceDiagram
+    participant H as Internal host 192.168.1.10
+    participant N as NAT device
+    participant S as Internet server 93.184.216.34
+    Note over H,S: OUTBOUND
+    H->>N: src 192.168.1.10:54321 - dst 93.184.216.34:443
+    Note over N: rewrite src to 203.0.113.5:40000<br/>table entry 192.168.1.10:54321 to 203.0.113.5:40000
+    N->>S: src 203.0.113.5:40000 - dst 93.184.216.34:443
+    Note over H,S: RETURN
+    S->>N: dst 203.0.113.5:40000
+    Note over N: lookup then rewrite dst to 192.168.1.10:54321
+    N->>H: dst 192.168.1.10:54321
 ```
 
 **Why the port matters so much here.** This is the direct payoff of everything learned about ports and the connection 4-tuple in [04-tcp.md](04-tcp.md#where-tcp-sits-and-the-4-tuple) and [05-udp.md](05-udp.md): a single public IP address has 65,536 possible ports, and the NAT device uses the **port** as the disambiguator that lets many different internal (IP, port) combinations share one public IP. Without ports to multiplex on, one public IP could support translation for only one internal host at a time — the port is what makes many-to-one sharing possible at all.

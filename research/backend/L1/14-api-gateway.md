@@ -52,31 +52,31 @@ Each of these is a full topic elsewhere in this curriculum; here they're introdu
 
 Mechanically, a request passing through a gateway moves through a **pipeline of stages** (often literally implemented as middleware/plugins that run in a defined order), where each stage can inspect, modify, or reject the request before it reaches the next:
 
+```mermaid
+flowchart LR
+    M[Mobile] --> GW
+    W[Web] --> GW
+    P[Partner API] --> GW
+    subgraph GW["API Gateway"]
+        direction TB
+        S1["TLS terminate"] --> S2["Auth (JWT/key)"] --> S3["Rate limit check"] --> S4["Routing (path/version)"]
+        S5["Transform (rewrite/version)"] --> S6["Aggregate/compose (fan-out)"] --> S7["Observability (log, metrics, trace ID)"]
+    end
+    GW --> O["Orders service"]
+    GW --> U["Users service"]
+    GW --> Sh["Shipping service"]
 ```
-                         ┌─────────────── API Gateway ───────────────┐
-                         │                                            │
-Clients                  │  TLS        Auth       Rate      Routing   │       Backend microservices
-(mobile, web,   ───────► │  terminate  (JWT/key)  limit     (path/    │ ────► ┌───────────┐
- partner API)            │                        check     version)  │       │ Orders     │
-                         │                                            │  ┌──► │ service    │
-                         │  Transform   Aggregate/   Observability    │  │    └───────────┘
-                         │  (rewrite,   compose      (log, metrics,   │──┤    ┌───────────┐
-                         │   version)   (fan-out)    trace ID)        │  ├──► │ Users      │
-                         │                                            │  │    │ service    │
-                         └────────────────────────────────────────────┘  │    └───────────┘
-                                                                          │    ┌───────────┐
-                                                                          └──► │ Shipping   │
-                                                                               │ service    │
-                                                                               └───────────┘
 
-Contrast — the alternative, without a gateway:
+Contrast — the alternative, without a gateway, each client talks to every service directly and every service reimplements the same plumbing:
 
-Clients ──────────────────────────────────────────────────────────►  Orders service   (own auth, own rate limit, own TLS...)
-        ──────────────────────────────────────────────────────────►  Users service    (own auth, own rate limit, own TLS...)
-        ──────────────────────────────────────────────────────────►  Shipping service (own auth, own rate limit, own TLS...)
-
-  clients must know every service's address, and every service duplicates the same cross-cutting logic
+```mermaid
+flowchart LR
+    C[Clients] --> O["Orders service<br/>own auth, own rate limit, own TLS..."]
+    C --> U["Users service<br/>own auth, own rate limit, own TLS..."]
+    C --> Sh["Shipping service<br/>own auth, own rate limit, own TLS..."]
 ```
+
+Clients must know every service's address, and every service duplicates the same cross-cutting logic.
 
 A request fails fast at whichever stage rejects it — an invalid token never reaches the routing stage, an over-quota client never reaches a backend at all — which is exactly the point: the more of these failures the gateway can catch before a backend does any work, the more backend capacity is protected for genuinely valid traffic.
 

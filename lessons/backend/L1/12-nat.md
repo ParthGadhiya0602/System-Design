@@ -53,18 +53,18 @@ The heart of NAT is a table mapping an internal `(private IP, port)` to an exter
 **Outbound:** rewrite the *source* to the router's public IP and a chosen public port, and record the mapping.
 **Return:** look up the public `(IP, port)` the reply arrived at, and rewrite the *destination* back to the original private `(IP, port)`.
 
-```
-OUTBOUND
-  Internal host                NAT device                     Internet
-  src 192.168.1.10:54321 ---> [rewrite src] -------------> dst 93.184.216.34:443
-  dst 93.184.216.34:443        src becomes 203.0.113.5:40000
-
-  Table entry created:  192.168.1.10:54321  <-->  203.0.113.5:40000
-
-RETURN
-  Internet                     NAT device                     Internal host
-  src 93.184.216.34:443  ---> [lookup + rewrite dst] ----> dst 192.168.1.10:54321
-  dst 203.0.113.5:40000        dst restored to 192.168.1.10:54321
+```mermaid
+sequenceDiagram
+    participant H as Internal host
+    participant N as NAT device
+    participant S as Server
+    Note over H,S: OUTBOUND
+    H->>N: src 192.168.1.10:54321, dst 93.184.216.34:443
+    N->>S: src rewritten to 203.0.113.5:40000
+    Note over N: Table entry: 192.168.1.10:54321 to 203.0.113.5:40000
+    Note over H,S: RETURN
+    S->>N: dst 203.0.113.5:40000
+    N->>H: dst restored to 192.168.1.10:54321
 ```
 
 **Why the port matters so much.** This is the payoff of the 4-tuple from topics 4/5. A single public IP has 65,536 ports, and NAT uses the **port** as the disambiguator that lets many internal `(IP, port)` pairs share one public IP. Without ports to multiplex on, one public IP could serve only one inside host at a time -- the port is what makes many-to-one sharing possible at all.

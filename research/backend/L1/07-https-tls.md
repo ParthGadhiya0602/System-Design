@@ -127,8 +127,9 @@ The practical privacy implication: because classic SNI is sent unencrypted, anyo
 
 This is where every prior L1 topic's RTT accounting comes together. For a brand-new HTTPS connection over TCP:
 
-```
-TCP handshake (1 RTT)  +  TLS 1.3 handshake (1 RTT)  =  ~2 RTTs before the first HTTP request byte is sent
+```mermaid
+flowchart LR
+    A["TCP handshake (1 RTT)"] --> B["TLS 1.3 handshake (1 RTT)"] --> C["~2 RTTs before the first HTTP request byte is sent"]
 ```
 
 (TLS 1.2 would make this ~3 RTTs total, given its 2-RTT handshake.) Over a mobile connection with, say, 50-100ms RTT to a nearby edge (numbers vary hugely by geography and network — `verify` before quoting as fact for any specific scenario), that's 100-200ms of pure setup latency paid *before any actual content is requested*, on every fresh connection.

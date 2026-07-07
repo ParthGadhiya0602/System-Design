@@ -39,14 +39,12 @@ Two big jobs, always:
 
 **Framing: a load balancer is a specialized reverse proxy.** [11-forward-and-reverse-proxies.md](11-forward-and-reverse-proxies.md) already established that a reverse proxy fronts a group of servers, terminates the client's connection, and can act as a single choke point for cross-cutting concerns — TLS termination, routing, caching, and load distribution among them. A load balancer is that same mechanism, specialized specifically for the "distribute traffic across a pool, using an algorithm, informed by health checks" job. Every load balancer is a reverse proxy; not every reverse proxy is a load balancer (a reverse proxy fronting exactly one backend, doing only TLS termination, is not balancing anything).
 
-```
-                     Virtual IP (VIP)
-Client ----request---->  [ Load Balancer ]
-                             |   |   |
-                     (health-checked, algorithm-selected)
-                             v   v   v
-                        [Backend 1] [Backend 2] [Backend 3]
-                         (healthy)   (healthy)   (UNHEALTHY - ejected)
+```mermaid
+flowchart TB
+    Client -->|request| LB["Load Balancer<br/>Virtual IP (VIP)"]
+    LB -->|health-checked, algorithm-selected| B1["Backend 1 (healthy)"]
+    LB --> B2["Backend 2 (healthy)"]
+    LB --> B3["Backend 3 (UNHEALTHY - ejected)"]
 ```
 
 ## L4 vs L7 load balancing
@@ -177,20 +175,12 @@ Everything above assumes the load balancer is always there to do its job — but
 
 **The layered reality — DNS LB -> L4 LB -> L7 LB -> servers.** Real, large-scale systems rarely rely on one single load-balancing layer; balancing typically happens in tiers, each handling a different scope of the problem:
 
-```
-Client
-  |
-  v
-DNS-based / GSLB layer   (global: routes to the nearest healthy region/data center)
-  |
-  v
-L4 load balancer          (regional: extremely fast, coarse distribution across many
-  |                         L7 LB instances or backend pools, absorbs huge raw throughput)
-  v
-L7 load balancer          (local: content-aware routing - path, host, cookie -
-  |                         TLS termination, fine-grained algorithm + health checks)
-  v
-Backend server pool
+```mermaid
+flowchart TD
+    Client --> DNS["DNS-based / GSLB layer<br/>global - routes to nearest healthy region/data center"]
+    DNS --> L4["L4 load balancer<br/>regional - fast coarse distribution across many L7 LB instances or backend pools, absorbs huge raw throughput"]
+    L4 --> L7["L7 load balancer<br/>local - content-aware routing (path, host, cookie), TLS termination, fine-grained algorithm + health checks"]
+    L7 --> Pool["Backend server pool"]
 ```
 
 Each tier exists because it's solving a different scale/precision trade-off: DNS/GSLB makes coarse, slow-to-change, geography-scale decisions cheaply; L4 handles enormous raw connection volume fast and cheaply; L7 makes fine-grained, content-aware decisions at the cost of doing real per-request work — pushing that expensive work down to only the tier that actually needs it.
