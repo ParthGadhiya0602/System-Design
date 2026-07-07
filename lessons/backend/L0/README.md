@@ -10,7 +10,7 @@ Each lesson is a short, self-contained read (~5-8 min). Work through them in ord
 | 02 | [Functional vs Non-Functional Requirements](02-functional-vs-non-functional-requirements.md) | What the system does vs how well -- and why numbers turn a diagram into engineering. |
 | 03 | [Client-Server Model](03-client-server-model.md) | The request/response contract that underpins nearly every system. |
 | 04 | [Request Lifecycle End-to-End](04-request-lifecycle-end-to-end.md) | Follow one request from browser to database and back. |
-| 05 | Back-of-Envelope Estimation | Turning "it should be fast" into QPS, storage, and bandwidth math. |
+| 05 | [Back-of-Envelope Estimation](05-back-of-envelope-estimation.md) | Turning "it should be fast" into QPS, storage, and bandwidth math. |
 | 06 | Latency Numbers Every Engineer Should Know | The order-of-magnitude table that grounds every design in reality. |
 | 07 | Availability, Reliability, Scalability, Maintainability | The four "-ilities" that define non-functional goals. |
 | 08 | SLA / SLO / SLI | Promises, targets, and the measurements behind them. |
