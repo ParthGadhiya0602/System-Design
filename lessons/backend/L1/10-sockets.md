@@ -150,5 +150,5 @@ Full sourcing (UNIX Network Programming, the POSIX man pages, Kegel's C10K essay
 
 ---
 
-→ Next: [Forward and reverse proxies](11-forward-reverse-proxies.md) (intermediaries that front for clients or servers)
+→ Next: [Forward and reverse proxies](11-forward-and-reverse-proxies.md) (intermediaries that front for clients or servers)
 ↩ Comes back in: load balancers (juggling client + backend sockets), connection pooling (caching connected sockets), service mesh (sidecars over Unix domain sockets)
