@@ -151,5 +151,5 @@ Estimation is a mindset as much as a method. The rules that make it pay off:
 
 ---
 
-→ Next: [Latency numbers every engineer should know](06-latency-numbers-every-engineer-should-know.md)
+→ Next: [Latency numbers every engineer should know](06-latency-numbers.md)
 ↩ Comes back in: caching, sharding, capacity planning, applied design
