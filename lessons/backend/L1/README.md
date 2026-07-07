@@ -2,7 +2,7 @@
 
 *How bytes actually travel. Every system you'll design talks over a network -- this level is the ground truth beneath requests, connections, proxies, and CDNs. Start with the layer map; everything else hangs on it.*
 
-**In progress** -- topics 1-11 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- topics 1-12 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -17,7 +17,7 @@
 | 09 | [REST vs gRPC vs GraphQL](09-rest-grpc-graphql.md) | Three API styles and the trade-offs that decide between them. | ✅ |
 | 10 | [Sockets](10-sockets.md) | The programming interface where the network stack meets your code. | ✅ |
 | 11 | [Forward and Reverse Proxies](11-forward-and-reverse-proxies.md) | Two intermediaries, opposite directions -- who they front for and why. | ✅ |
-| 12 | NAT | How many private hosts share one public IP -- and what it breaks. | ⚪ |
+| 12 | [NAT](12-nat.md) | How many private hosts share one public IP -- and what it breaks. | ✅ |
 | 13 | Load Balancers | Spreading traffic across servers, and the L4-vs-L7 choice that shapes everything. | ⚪ |
 | 14 | API Gateway | The single front door for many services: auth, routing, rate limiting. | ⚪ |
 | 15 | CDN Internals | Serving content from the edge -- caching, invalidation, and how a POP decides. | ⚪ |
