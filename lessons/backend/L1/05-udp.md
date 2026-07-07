@@ -147,5 +147,5 @@ Full sourcing (RFC 768, RFC 8085, RFC 9000/QUIC, *TCP/IP Illustrated Vol. 1*): [
 
 ---
 
-→ Next: [HTTP/1.1, HTTP/2, HTTP/3 (QUIC)](06-http.md) (the web's application protocol, and how each version killed the last one's bottleneck)
+→ Next: [HTTP/1.1, HTTP/2, HTTP/3 (QUIC)](06-http-versions.md) (the web's application protocol, and how each version killed the last one's bottleneck)
 ↩ Comes back in: HTTP/3 & QUIC, WebRTC, load balancers (L4), NAT

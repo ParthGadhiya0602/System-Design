@@ -2,7 +2,7 @@
 
 *How bytes actually travel. Every system you'll design talks over a network -- this level is the ground truth beneath requests, connections, proxies, and CDNs. Start with the layer map; everything else hangs on it.*
 
-**In progress** -- topics 1-5 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- topics 1-6 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -11,7 +11,7 @@
 | 03 | [DNS Deep](03-dns-deep.md) | Turning names into IPs -- the hierarchy, caching, and record types behind every lookup. | ✅ |
 | 04 | [TCP](04-tcp.md) | Reliable, ordered byte streams: the handshake, flow control, and congestion control. | ✅ |
 | 05 | [UDP](05-udp.md) | Fire-and-forget datagrams -- when losing "reliable" buys you speed. | ✅ |
-| 06 | HTTP/1.1, 2, 3 | The web's application protocol and how each version killed the last one's bottleneck. | ⚪ |
+| 06 | [HTTP/1.1, HTTP/2, HTTP/3 (QUIC)](06-http-versions.md) | The web's application protocol and how each version killed the last one's bottleneck. | ✅ |
 | 07 | HTTPS / TLS Handshake | How two strangers agree on a shared secret and encrypt everything after. | ⚪ |
 | 08 | WebSockets, SSE, Long-Polling | Three ways to push server data to a client in near-real-time. | ⚪ |
 | 09 | REST vs gRPC vs GraphQL | Three API styles and the trade-offs that decide between them. | ⚪ |
