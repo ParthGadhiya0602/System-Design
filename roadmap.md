@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (12 of 17 done). Next in order:
+> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (13 of 17 done). Next in order:
 >
-> 1. **L1. Networking** - continue in order. Next topic: Load balancers (L4/L7, algorithms, health checks).
+> 1. **L1. Networking** - continue in order. Next topic: API gateway.
 > 2. Then proceed down the backend track in order (L2+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -110,7 +110,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Sockets                                           | ✅     | 🟧     |
 | Forward and reverse proxies                       | ✅     | 🟥     |
 | NAT                                               | ✅     | 🟨     |
-| Load balancers (L4/L7, algorithms, health checks) | ⚪     | 🟥     |
+| Load balancers (L4/L7, algorithms, health checks) | ✅     | 🟥     |
 | API gateway                                       | ⚪     | 🟧     |
 | CDN internals                                     | ⚪     | 🟥     |
 | Anycast / BGP basics                              | ⚪     | 🟨     |
