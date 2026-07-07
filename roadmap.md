@@ -87,7 +87,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Latency numbers every engineer should know                                       | ✅     | 🟥     |
 | Availability, reliability, scalability, maintainability                          | ✅     | 🟥     |
 | SLA / SLO / SLI                                                                  | ✅     | 🟧     |
-| Vertical vs horizontal scaling                                                   | ⚪     | 🟥     |
+| Vertical vs horizontal scaling                                                   | ✅     | 🟥     |
 | Percentiles and tail latency                                                     | ⚪     | 🟥     |
 | Throughput vs latency                                                            | ⚪     | 🟥     |
 | Little's Law                                                                     | ⚪     | 🟧     |
