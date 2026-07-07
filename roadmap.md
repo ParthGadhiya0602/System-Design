@@ -18,23 +18,23 @@ Every topic aims to be learned first-principles-first, then reinforced with a co
 
 ## Status legend
 
-| Status        | Meaning                                          |
-| ------------- | ------------------------------------------------ |
-| `todo`        | No material generated yet.                       |
-| `in-progress` | Material currently being generated.              |
-| `done`        | Material generated (concept + examples + lesson).|
+| Icon | Status      | Meaning                                           |
+| ---- | ----------- | ------------------------------------------------- |
+| ⚪   | todo        | No material generated yet.                        |
+| 🔄   | in-progress | Material currently being generated.               |
+| ✅   | done        | Material generated (concept + examples + lesson). |
 
-Order: `todo` -> `in-progress` -> `done`. Status tracks whether the **material exists**, not whether it was studied/practiced (those are async and not tracked here).
+Order: ⚪ -&gt; 🔄 -&gt; ✅. Status tracks whether the **material exists**, not whether it was studied/practiced (those are async and not tracked here).
 
 ## Weight legend
 
 Weight is a **priority signal, not the focus** - everything gets mastered, but when time is tight, do heavier weights first.
 
-| Weight | Meaning                                                              |
+| Weight | Meaning                                                             |
 | ------ | ------------------------------------------------------------------- |
-| 🟥      | Core - foundational, appears everywhere, master deeply.             |
-| 🟧      | Important - common and high-value, expected at senior level.        |
-| 🟨      | Good-to-know - rounds out expertise; often emerging or specialized. |
+| 🟥     | Core - foundational, appears everywhere, master deeply.             |
+| 🟧     | Important - common and high-value, expected at senior level.        |
+| 🟨     | Good-to-know - rounds out expertise; often emerging or specialized. |
 
 Items marked **(emerging)** are newer or meaningfully evolved since the classic syllabus was written - learn them, but know they are the modern frontier rather than settled canon.
 
@@ -44,7 +44,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F. Computing Fundamentals is `done`** (concept + verified examples + lesson). Next in order:
+> **F. Computing Fundamentals is** `done` (concept + verified examples + lesson). Next in order:
 >
 > 1. **L0. System-Design Foundations** - the vocabulary and estimation skills every design uses.
 > 2. **L1. Networking** - how traffic reaches and moves through a system.
@@ -56,43 +56,42 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## F. Computing Fundamentals
 
-**Goal:** Understand what a single machine actually does so every distributed concept later rests on real mechanics, not magic. · **Prereqs:** none.
-**Material:** [Lessons (12 bite-sized)](lessons/backend/F/README.md) · [Concepts](research/backend/F/f-computing-fundamentals.md) · [Case studies & sources](research/backend/F/f-computing-fundamentals-cases-and-sources.md)
+**Goal:** Understand what a single machine actually does so every distributed concept later rests on real mechanics, not magic. · **Prereqs:** none. **Material:** Lessons (12 bite-sized) · Concepts · Case studies & sources
 
-| Topic                                                                     | Status | Weight |
-| ------------------------------------------------------------------------- | ------ | ------ |
-| CPU and memory hierarchy (registers, caches, cache lines, locality)       | done   | 🟥      |
-| Processes vs threads                                                       | done   | 🟥      |
-| Concurrency vs parallelism; context switching                             | done   | 🟥      |
-| Locks, mutexes, semaphores; race conditions; deadlock; atomicity          | done   | 🟥      |
-| I/O models (blocking, non-blocking, async, epoll, event loops)            | done   | 🟥      |
-| OS scheduling and virtual memory (paging, TLB)                            | done   | 🟧      |
-| Disks (HDD/SSD/NVMe) and filesystems                                       | done   | 🟧      |
-| Data representation (binary/hex, ASCII/Unicode/UTF-8, endianness)         | done   | 🟧      |
-| Serialization (JSON, XML, Protobuf, Avro, Thrift)                         | done   | 🟥      |
-| Compression (gzip, Snappy, LZ4, Zstd)                                     | done   | 🟧      |
-| Hashing (crypto vs non-crypto, collisions, checksums/CRC)                 | done   | 🟥      |
-| Clocks (monotonic vs wall clock, NTP)                                     | done   | 🟧      |
+| Topic                                                               | Status | Weight |
+| ------------------------------------------------------------------- | ------ | ------ |
+| CPU and memory hierarchy (registers, caches, cache lines, locality) | ✅     | 🟥     |
+| Processes vs threads                                                | ✅     | 🟥     |
+| Concurrency vs parallelism; context switching                       | ✅     | 🟥     |
+| Locks, mutexes, semaphores; race conditions; deadlock; atomicity    | ✅     | 🟥     |
+| I/O models (blocking, non-blocking, async, epoll, event loops)      | ✅     | 🟥     |
+| OS scheduling and virtual memory (paging, TLB)                      | ✅     | 🟧     |
+| Disks (HDD/SSD/NVMe) and filesystems                                | ✅     | 🟧     |
+| Data representation (binary/hex, ASCII/Unicode/UTF-8, endianness)   | ✅     | 🟧     |
+| Serialization (JSON, XML, Protobuf, Avro, Thrift)                   | ✅     | 🟥     |
+| Compression (gzip, Snappy, LZ4, Zstd)                               | ✅     | 🟧     |
+| Hashing (crypto vs non-crypto, collisions, checksums/CRC)           | ✅     | 🟥     |
+| Clocks (monotonic vs wall clock, NTP)                               | ✅     | 🟧     |
 
 ## L0. System-Design Foundations
 
 **Goal:** Understand what system design is and the vocabulary/estimation skills every design uses. · **Prereqs:** F.
 
-| Topic                                                        | Status | Weight |
-| ------------------------------------------------------------ | ------ | ------ |
-| What system design is; the design mindset                    | todo   | 🟥      |
-| Functional vs non-functional requirements                    | todo        | 🟥      |
-| Client-server model                                          | todo        | 🟥      |
-| Request lifecycle end-to-end (browser->DNS->LB->server->DB->back) | todo   | 🟥      |
-| Back-of-envelope estimation (QPS / storage / bandwidth)      | todo        | 🟥      |
-| Latency numbers every engineer should know                   | todo        | 🟥      |
-| Availability, reliability, scalability, maintainability      | todo        | 🟥      |
-| SLA / SLO / SLI                                              | todo        | 🟧      |
-| Vertical vs horizontal scaling                               | todo        | 🟥      |
-| Percentiles and tail latency                                 | todo        | 🟥      |
-| Throughput vs latency                                        | todo        | 🟥      |
-| Little's Law                                                 | todo        | 🟧      |
-| Universal Scalability Law                                    | todo        | 🟨      |
+| Topic                                                                            | Status | Weight |
+| -------------------------------------------------------------------------------- | ------ | ------ |
+| What system design is; the design mindset                                        | ✅     | 🟥     |
+| Functional vs non-functional requirements                                        | ✅     | 🟥     |
+| Client-server model                                                              | ✅     | 🟥     |
+| Request lifecycle end-to-end (browser-&gt;DNS-&gt;LB-&gt;server-&gt;DB-&gt;back) | ✅     | 🟥     |
+| Back-of-envelope estimation (QPS / storage / bandwidth)                          | ⚪     | 🟥     |
+| Latency numbers every engineer should know                                       | ⚪     | 🟥     |
+| Availability, reliability, scalability, maintainability                          | ⚪     | 🟥     |
+| SLA / SLO / SLI                                                                  | ⚪     | 🟧     |
+| Vertical vs horizontal scaling                                                   | ⚪     | 🟥     |
+| Percentiles and tail latency                                                     | ⚪     | 🟥     |
+| Throughput vs latency                                                            | ⚪     | 🟥     |
+| Little's Law                                                                     | ⚪     | 🟧     |
+| Universal Scalability Law                                                        | ⚪     | 🟨     |
 
 ## L1. Networking
 
