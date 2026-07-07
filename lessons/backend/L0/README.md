@@ -17,7 +17,7 @@ Each lesson is a short, self-contained read (~5-8 min). Work through them in ord
 | 09 | [Vertical vs Horizontal Scaling](09-vertical-vs-horizontal-scaling.md) | Bigger machine vs more machines -- and where each hits a wall. |
 | 10 | [Percentiles and Tail Latency](10-percentiles-and-tail-latency.md) | Why the average lies and p99 is what users feel. |
 | 11 | [Throughput vs Latency](11-throughput-vs-latency.md) | Work-per-second vs time-per-request, and how they trade off. |
-| 12 | Little's Law | The tiny formula linking concurrency, throughput, and latency. |
+| 12 | [Little's Law](12-littles-law.md) | The tiny formula linking concurrency, throughput, and latency. |
 | 13 | Universal Scalability Law | Why adding machines eventually stops helping -- and can hurt. |
 
 **Deeper reference:** [concepts](../../../research/backend/L0/01-what-system-design-is.md)

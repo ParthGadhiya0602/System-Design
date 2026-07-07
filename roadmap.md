@@ -90,7 +90,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Vertical vs horizontal scaling                                                   | ✅     | 🟥     |
 | Percentiles and tail latency                                                     | ✅     | 🟥     |
 | Throughput vs latency                                                            | ✅     | 🟥     |
-| Little's Law                                                                     | ⚪     | 🟧     |
+| Little's Law                                                                     | ✅     | 🟧     |
 | Universal Scalability Law                                                        | ⚪     | 🟨     |
 
 ## L1. Networking
