@@ -53,7 +53,7 @@ The warehouse is the **origin**. The corner shops are **edge PoPs**. A CDN is th
 Routing a user to the *nearest healthy* PoP happens *before* any HTTP logic runs. Two canonical mechanisms (large CDNs combine both):
 
 - **GeoDNS / latency-based DNS** (back-ref [topic 3](03-dns-deep.md#geodns-and-location-based-answers)) -- the CDN's authoritative DNS returns a *different* edge IP depending on where the resolver is. Decided once, at resolve time; subject to DNS TTL, so reacting to a PoP outage waits for the record to expire.
-- **Anycast** (forward-ref [topic 16](16-anycast-and-bgp.md)) -- the *same* IP is announced from every PoP, and internet routing (BGP) delivers each user's packets to the topologically nearest one. Failover is a routing event, not a TTL wait.
+- **Anycast** (forward-ref [topic 16](16-anycast-bgp.md)) -- the *same* IP is announced from every PoP, and internet routing (BGP) delivers each user's packets to the topologically nearest one. Failover is a routing event, not a TTL wait.
 
 ```mermaid
 flowchart TD
@@ -153,5 +153,5 @@ Full sourcing: [research/backend/L1/15-cdn-internals.md](../../../research/backe
 
 ---
 
-→ Next: [Anycast / BGP Basics](16-anycast-and-bgp.md) (how one IP lives in many places, and how the internet routes between networks)
+→ Next: [Anycast / BGP Basics](16-anycast-bgp.md) (how one IP lives in many places, and how the internet routes between networks)
 ↩ Comes back in: caching strategies & eviction (L3), object storage (L3), edge compute (cloud), DDoS/WAF (security), video-streaming design

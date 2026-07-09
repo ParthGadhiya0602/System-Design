@@ -2,7 +2,7 @@
 
 *How bytes actually travel. Every system you'll design talks over a network -- this level is the ground truth beneath requests, connections, proxies, and CDNs. Start with the layer map; everything else hangs on it.*
 
-**In progress** -- topics 1-15 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- topics 1-16 of 17 are written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -21,7 +21,7 @@
 | 13 | [Load Balancers](13-load-balancers.md) | Spreading traffic across servers, and the L4-vs-L7 choice that shapes everything. | ✅ |
 | 14 | [API Gateway](14-api-gateway.md) | The single front door for many services: auth, routing, rate limiting -- done once. | ✅ |
 | 15 | [CDN Internals](15-cdn-internals.md) | Serving content from the edge -- caching, invalidation, and how a POP decides. | ✅ |
-| 16 | Anycast / BGP Basics | How one IP lives in many places and how the internet routes between networks. | ⚪ |
+| 16 | [Anycast / BGP Basics](16-anycast-bgp.md) | How one IP lives in many places and how the internet routes between networks. | ✅ |
 | 17 | WebRTC | Peer-to-peer media and data straight between browsers. | ⚪ |
 
 **Deeper reference:** [research/backend/L1](../../../research/backend/L1/01-osi-and-tcp-ip-models.md)

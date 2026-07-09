@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (15 of 17 done). Next in order:
+> **F and L0 are** `done` (all 25 foundation lessons written). **L1 in progress** (16 of 17 done). Next in order:
 >
-> 1. **L1. Networking** - continue in order. Next topic: Anycast / BGP basics.
+> 1. **L1. Networking** - continue in order. Next topic: WebRTC (the final L1 topic).
 > 2. Then proceed down the backend track in order (L2+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -113,7 +113,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Load balancers (L4/L7, algorithms, health checks) | ✅     | 🟥     |
 | API gateway                                       | ✅     | 🟧     |
 | CDN internals                                     | ✅     | 🟥     |
-| Anycast / BGP basics                              | ⚪     | 🟨     |
+| Anycast / BGP basics                              | ✅     | 🟨     |
 | WebRTC                                            | ⚪     | 🟨     |
 
 ## L2. Storage and Relational Databases
