@@ -44,10 +44,10 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F and L0 are** `done` (all 25 foundation lessons written). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). Next in order:
 >
-> 1. **L1. Networking** - how traffic reaches, enters, and moves through a system. First topic: OSI and TCP/IP models.
-> 2. Then proceed down the backend track in order (L2+); the frontend track can now be interleaved (backend L0-L1 unlock it).
+> 1. **L2. Storage and Relational Databases** - the relational model and how a single database engine stores, indexes, and transacts data. First topic: Relational model.
+> 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
 
@@ -98,23 +98,23 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 | Topic                                             | Status | Weight |
 | ------------------------------------------------- | ------ | ------ |
-| OSI and TCP/IP models                             | ⚪     | 🟧     |
-| IP addressing and subnets                         | ⚪     | 🟧     |
-| DNS deep (resolution, records, GeoDNS, caching)   | ⚪     | 🟥     |
-| TCP (handshake, flow control, congestion control) | ⚪     | 🟥     |
-| UDP                                               | ⚪     | 🟧     |
-| HTTP/1.1, HTTP/2, HTTP/3 (QUIC)                   | ⚪     | 🟥     |
-| HTTPS / TLS handshake                             | ⚪     | 🟥     |
-| WebSockets / SSE / long-polling                   | ⚪     | 🟥     |
-| REST vs gRPC vs GraphQL                           | ⚪     | 🟥     |
-| Sockets                                           | ⚪     | 🟧     |
-| Forward and reverse proxies                       | ⚪     | 🟥     |
-| NAT                                               | ⚪     | 🟨     |
-| Load balancers (L4/L7, algorithms, health checks) | ⚪     | 🟥     |
-| API gateway                                       | ⚪     | 🟧     |
-| CDN internals                                     | ⚪     | 🟥     |
-| Anycast / BGP basics                              | ⚪     | 🟨     |
-| WebRTC                                            | ⚪     | 🟨     |
+| OSI and TCP/IP models                             | ✅     | 🟧     |
+| IP addressing and subnets                         | ✅     | 🟧     |
+| DNS deep (resolution, records, GeoDNS, caching)   | ✅     | 🟥     |
+| TCP (handshake, flow control, congestion control) | ✅     | 🟥     |
+| UDP                                               | ✅     | 🟧     |
+| HTTP/1.1, HTTP/2, HTTP/3 (QUIC)                   | ✅     | 🟥     |
+| HTTPS / TLS handshake                             | ✅     | 🟥     |
+| WebSockets / SSE / long-polling                   | ✅     | 🟥     |
+| REST vs gRPC vs GraphQL                           | ✅     | 🟥     |
+| Sockets                                           | ✅     | 🟧     |
+| Forward and reverse proxies                       | ✅     | 🟥     |
+| NAT                                               | ✅     | 🟨     |
+| Load balancers (L4/L7, algorithms, health checks) | ✅     | 🟥     |
+| API gateway                                       | ✅     | 🟧     |
+| CDN internals                                     | ✅     | 🟥     |
+| Anycast / BGP basics                              | ✅     | 🟨     |
+| WebRTC                                            | ✅     | 🟨     |
 
 ## L2. Storage and Relational Databases
 
