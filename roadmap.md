@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (4 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (5 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID, Transactions and isolation levels). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - continue with transactions and isolation levels, then MVCC, and the rest of the level in order.
+> 1. **L2. Storage and Relational Databases** - continue with MVCC, then Locking, and the rest of the level in order.
 > 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -126,7 +126,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Normalization forms                                          | ✅     | 🟧     |
 | SQL depth (joins, aggregation, subqueries, window functions) | ✅     | 🟥     |
 | ACID                                                         | ✅     | 🟥     |
-| Transactions and isolation levels                            | ⚪     | 🟥     |
+| Transactions and isolation levels                            | ✅     | 🟥     |
 | MVCC                                                         | ⚪     | 🟧     |
 | Locking (row/table, optimistic/pessimistic)                  | ⚪     | 🟧     |
 | Indexing (B-tree, hash, LSM-tree)                            | ⚪     | 🟥     |
