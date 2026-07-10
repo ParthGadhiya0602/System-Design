@@ -2,12 +2,12 @@
 
 *The relational model and how a single database engine actually stores, indexes, and transacts data -- the ground truth beneath every caching layer, replication scheme, and NoSQL trade-off that comes later.*
 
-**In progress** -- 1 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- 2 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
 | 01 | [Relational model](01-relational-model.md) | Relations, tuples, keys, algebra, and why separating "what" from "how" is what made SQL win. | ✅ |
-| 02 | Normalization forms | Eliminating redundancy and update anomalies, one normal form at a time. | ⚪ |
+| 02 | [Normalization forms](02-normalization-forms.md) | Eliminating redundancy and update anomalies, one normal form at a time. | ✅ |
 | 03 | SQL depth (joins, aggregation, subqueries, window functions) | Beyond the basics -- the SQL that powers real analytics and reporting. | ⚪ |
 | 04 | ACID | The four guarantees a transaction makes -- and what breaks without each one. | ⚪ |
 | 05 | Transactions and isolation levels | Running multiple transactions at once without them corrupting each other. | ⚪ |
