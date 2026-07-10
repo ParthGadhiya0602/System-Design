@@ -2,7 +2,7 @@
 
 *The relational model and how a single database engine actually stores, indexes, and transacts data -- the ground truth beneath every caching layer, replication scheme, and NoSQL trade-off that comes later.*
 
-**In progress** -- 5 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- 6 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -11,7 +11,7 @@
 | 03 | [SQL depth (joins, aggregation, subqueries, window functions)](03-sql-depth.md) | Beyond the basics -- combining rows, collapsing them, nesting queries, and per-row aggregates without collapsing anything. | ✅ |
 | 04 | [ACID](04-acid.md) | The four guarantees a transaction makes -- and what breaks without each one. | ✅ |
 | 05 | [Transactions and isolation levels](05-transactions-isolation-levels.md) | The menu of how strictly "concurrent transactions look like they ran one at a time" is actually enforced -- and the named bugs each weaker setting lets through. | ✅ |
-| 06 | MVCC | How readers and writers avoid blocking each other without sacrificing consistency. | ⚪ |
+| 06 | [MVCC](06-mvcc.md) | How readers and writers avoid blocking each other, by keeping multiple versions of the same row instead of overwriting it. | ✅ |
 | 07 | Locking (row/table, optimistic/pessimistic) | The other way to control concurrent access -- and when it beats MVCC. | ⚪ |
 | 08 | Indexing (B-tree, hash, LSM-tree) | The structures that turn a full table scan into a handful of lookups. | ⚪ |
 | 09 | Write-ahead log (WAL) | How a database survives a crash without losing a committed write. | ⚪ |

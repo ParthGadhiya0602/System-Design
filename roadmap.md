@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (5 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID, Transactions and isolation levels). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (6 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID, Transactions and isolation levels, MVCC). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - continue with MVCC, then Locking, and the rest of the level in order.
+> 1. **L2. Storage and Relational Databases** - continue with Locking, then the rest of the level in order.
 > 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -118,7 +118,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L2. Storage and Relational Databases
 
-**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0. **Material:** Lesson (1) · Concept · Case studies & sources
+**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0. **Material:** Lessons (6) · Concept · Case studies & sources
 
 | Topic                                                        | Status | Weight |
 | ------------------------------------------------------------ | ------ | ------ |
@@ -127,7 +127,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | SQL depth (joins, aggregation, subqueries, window functions) | ✅     | 🟥     |
 | ACID                                                         | ✅     | 🟥     |
 | Transactions and isolation levels                            | ✅     | 🟥     |
-| MVCC                                                         | ⚪     | 🟧     |
+| MVCC                                                         | ✅     | 🟧     |
 | Locking (row/table, optimistic/pessimistic)                  | ⚪     | 🟧     |
 | Indexing (B-tree, hash, LSM-tree)                            | ⚪     | 🟥     |
 | Write-ahead log (WAL)                                        | ⚪     | 🟧     |
