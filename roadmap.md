@@ -6,7 +6,7 @@ The master learning path for this repo. It sequences everything a full-stack eng
 
 ## Mission: learning-first
 
-The goal is **deep mastery of every concept** - roughly 90% of the effort goes into truly understanding how each thing works, why it exists, what it trades off, and how it composes with everything else. Real-world examples (how MAANGO companies actually apply it) and interview weight are **secondary signals**: they tell us where to ground the learning and how to prioritize when time is short, but they are not the point. A topic is understood when you can derive it, not just recall it.
+The goal is **deep mastery of every concept** - roughly 90% of the effort goes into truly understanding how each thing works, why it exists, what it trades off, and how it composes with everything else. Real-world examples (how MANGOS companies actually apply it) and interview weight are **secondary signals**: they tell us where to ground the learning and how to prioritize when time is short, but they are not the point. A topic is understood when you can derive it, not just recall it.
 
 Every topic aims to be learned first-principles-first, then reinforced with a concrete real example, then eventually applied in a practice attempt.
 
@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (1 of 13 topics done: Relational model). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - the relational model and how a single database engine stores, indexes, and transacts data. First topic: Relational model.
+> 1. **L2. Storage and Relational Databases** - continue with Normalization forms, then SQL depth, ACID, and the rest of the level in order.
 > 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -118,11 +118,11 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L2. Storage and Relational Databases
 
-**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0.
+**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0. **Material:** Lesson (1) · Concept · Case studies & sources
 
 | Topic                                                        | Status | Weight |
 | ------------------------------------------------------------ | ------ | ------ |
-| Relational model                                             | ⚪     | 🟥     |
+| Relational model                                             | ✅     | 🟥     |
 | Normalization forms                                          | ⚪     | 🟧     |
 | SQL depth (joins, aggregation, subqueries, window functions) | ⚪     | 🟥     |
 | ACID                                                         | ⚪     | 🟥     |
