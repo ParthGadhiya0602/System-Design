@@ -2,7 +2,7 @@
 
 The master learning path for this repo. It sequences everything a full-stack engineer needs to go from **true beginner to expert**. It is read at the start of most sessions, so it is kept dense and scannable.
 
-> **Status: FINAL — locked v1 (2026-07-06).** The structure (levels, topics, sequencing) is frozen. Track progress by updating each topic's `Status`; structural changes are versioned updates, not ad-hoc edits.
+> **Status: FINAL - locked v1 (2026-07-06).** The structure (levels, topics, sequencing) is frozen. Track progress by updating each topic's `Status`; structural changes are versioned updates, not ad-hoc edits.
 
 ## Mission: learning-first
 
@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (3 of 13 topics done: Relational model, Normalization forms, SQL depth). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (4 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - continue with ACID, then transactions and isolation levels, and the rest of the level in order.
+> 1. **L2. Storage and Relational Databases** - continue with transactions and isolation levels, then MVCC, and the rest of the level in order.
 > 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -125,7 +125,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Relational model                                             | ✅     | 🟥     |
 | Normalization forms                                          | ✅     | 🟧     |
 | SQL depth (joins, aggregation, subqueries, window functions) | ✅     | 🟥     |
-| ACID                                                         | ⚪     | 🟥     |
+| ACID                                                         | ✅     | 🟥     |
 | Transactions and isolation levels                            | ⚪     | 🟥     |
 | MVCC                                                         | ⚪     | 🟧     |
 | Locking (row/table, optimistic/pessimistic)                  | ⚪     | 🟧     |
