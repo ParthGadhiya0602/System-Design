@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (9 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID, Transactions and isolation levels, MVCC, Locking, Indexing, Write-ahead log (WAL)). Next in order:
+> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). **L2 is in progress** (10 of 13 topics done: Relational model, Normalization forms, SQL depth, ACID, Transactions and isolation levels, MVCC, Locking, Indexing, Write-ahead log (WAL), Storage engines). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - continue with Storage engines, then the rest of the level in order.
+> 1. **L2. Storage and Relational Databases** - continue with Query planning and optimization, then Connection pooling, then OLTP vs OLAP.
 > 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -131,7 +131,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Locking (row/table, optimistic/pessimistic)                  | ✅     | 🟧     |
 | Indexing (B-tree, hash, LSM-tree)                            | ✅     | 🟥     |
 | Write-ahead log (WAL)                                        | ✅     | 🟧     |
-| Storage engines                                              | ⚪     | 🟧     |
+| Storage engines                                              | ✅     | 🟧     |
 | Query planning and optimization                              | ⚪     | 🟧     |
 | Connection pooling                                           | ⚪     | 🟧     |
 | OLTP vs OLAP                                                 | ⚪     | 🟥     |

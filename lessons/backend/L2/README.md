@@ -2,7 +2,7 @@
 
 *The relational model and how a single database engine actually stores, indexes, and transacts data -- the ground truth beneath every caching layer, replication scheme, and NoSQL trade-off that comes later.*
 
-**In progress** -- 9 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
+**In progress** -- 10 of 13 topics written so far. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -15,7 +15,7 @@
 | 07 | [Locking (row/table, optimistic/pessimistic)](07-locking.md) | The other way to control concurrent access -- and when it beats MVCC. | ✅ |
 | 08 | [Indexing (B-tree, hash, LSM-tree)](08-indexing.md) | The structures that turn a full table scan into a handful of lookups. | ✅ |
 | 09 | [Write-ahead log (WAL)](09-write-ahead-log.md) | How a database survives a crash without losing a committed write. | ✅ |
-| 10 | Storage engines | The physical layout choices (heap, clustered, LSM) hiding behind the same SQL query. | ⚪ |
+| 10 | [Storage engines](10-storage-engines.md) | In-place B-tree pages vs. append-and-compact LSM-trees -- the physical write path hiding behind every SQL query. | ✅ |
 | 11 | Query planning and optimization | How declarative SQL becomes an actual, efficient execution plan. | ⚪ |
 | 12 | Connection pooling | Why opening a fresh connection per request doesn't scale, and what fixes it. | ⚪ |
 | 13 | OLTP vs OLAP | Two very different workloads, two very different ways of laying out data. | ⚪ |
