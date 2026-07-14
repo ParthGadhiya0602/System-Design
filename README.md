@@ -1,8 +1,8 @@
-# System Design — From Scratch to Expert
+# System Design - From Scratch to Expert
 
-A comprehensive, **first-principles system design curriculum** that takes you from computing fundamentals all the way to advanced distributed systems and frontend system design. Every concept is taught deeply — *what it is, why it exists, how it works internally, and its trade-offs* — and grounded in **real-world engineering from top companies** (Meta, Netflix, AWS, Google, Stripe, and more).
+A comprehensive, **first-principles system design curriculum** that takes you from computing fundamentals all the way to advanced distributed systems and frontend system design. Every concept is taught deeply - _what it is, why it exists, how it works internally, and its trade-offs_ - and grounded in **real-world engineering from top companies** (Meta, Netflix, AWS, Google, Stripe, and more).
 
-Learning-first, not interview cram — but it covers everything a **system design interview** at a top tech company expects.
+Learning-first, not interview cram - but it covers everything a **system design interview** at a top tech company expects.
 
 ## What's inside
 
@@ -14,10 +14,10 @@ Browser internals & rendering (CSR/SSR/SSG/RSC) · client data & state · Core W
 
 ## How it's organized
 
-- **`roadmap.md`** — the full syllabus with per-topic status and priority.
-- **`lessons/`** — bite-sized, digestible lessons (one concept per file, with diagrams and worked examples).
-- **`research/`** — dense concept references (the source of truth) plus verified sources.
-- **`practice/`** — design problems, attempts, and reviews.
+- **`roadmap.md`** - the full syllabus with per-topic status and priority.
+- **`lessons/`** - bite-sized, digestible lessons (one concept per file, with diagrams and worked examples).
+- **`research/`** - dense concept references (the source of truth) plus verified sources.
+- **`practice/`** - design problems, attempts, and reviews.
 
 ## Topics covered
 

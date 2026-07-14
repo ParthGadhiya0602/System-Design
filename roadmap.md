@@ -2,11 +2,11 @@
 
 The master learning path for this repo. It sequences everything a full-stack engineer needs to go from **true beginner to expert**. It is read at the start of most sessions, so it is kept dense and scannable.
 
-> **Status: FINAL — locked v1 (2026-07-06).** The structure (levels, topics, sequencing) is frozen. Track progress by updating each topic's `Status`; structural changes are versioned updates, not ad-hoc edits.
+> **Status: FINAL - locked v1 (2026-07-06).** The structure (levels, topics, sequencing) is frozen. Track progress by updating each topic's `Status`; structural changes are versioned updates, not ad-hoc edits.
 
 ## Mission: learning-first
 
-The goal is **deep mastery of every concept** - roughly 90% of the effort goes into truly understanding how each thing works, why it exists, what it trades off, and how it composes with everything else. Real-world examples (how MAANGO companies actually apply it) and interview weight are **secondary signals**: they tell us where to ground the learning and how to prioritize when time is short, but they are not the point. A topic is understood when you can derive it, not just recall it.
+The goal is **deep mastery of every concept** - roughly 90% of the effort goes into truly understanding how each thing works, why it exists, what it trades off, and how it composes with everything else. Real-world examples (how MANGOS companies actually apply it) and interview weight are **secondary signals**: they tell us where to ground the learning and how to prioritize when time is short, but they are not the point. A topic is understood when you can derive it, not just recall it.
 
 Every topic aims to be learned first-principles-first, then reinforced with a concrete real example, then eventually applied in a practice attempt.
 
@@ -44,10 +44,10 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, and L1 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons). Next in order:
+> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). Next in order:
 >
-> 1. **L2. Storage and Relational Databases** - the relational model and how a single database engine stores, indexes, and transacts data. First topic: Relational model.
-> 2. Then proceed down the backend track in order (L3+); the frontend track can now be interleaved (backend L0-L1 unlock it).
+> 1. **L3. Caching and Data Access** - start with caching layers and strategies (read-through, write-through, write-back, cache-aside).
+> 2. Then proceed down the backend track in order (L4+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
 
@@ -118,23 +118,23 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L2. Storage and Relational Databases
 
-**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0.
+**Goal:** Master the relational model and how a single database engine actually stores, indexes, and transacts data. · **Prereqs:** L0. **Material:** Lessons (13) · Concept · Case studies & sources
 
 | Topic                                                        | Status | Weight |
 | ------------------------------------------------------------ | ------ | ------ |
-| Relational model                                             | ⚪     | 🟥     |
-| Normalization forms                                          | ⚪     | 🟧     |
-| SQL depth (joins, aggregation, subqueries, window functions) | ⚪     | 🟥     |
-| ACID                                                         | ⚪     | 🟥     |
-| Transactions and isolation levels                            | ⚪     | 🟥     |
-| MVCC                                                         | ⚪     | 🟧     |
-| Locking (row/table, optimistic/pessimistic)                  | ⚪     | 🟧     |
-| Indexing (B-tree, hash, LSM-tree)                            | ⚪     | 🟥     |
-| Write-ahead log (WAL)                                        | ⚪     | 🟧     |
-| Storage engines                                              | ⚪     | 🟧     |
-| Query planning and optimization                              | ⚪     | 🟧     |
-| Connection pooling                                           | ⚪     | 🟧     |
-| OLTP vs OLAP                                                 | ⚪     | 🟥     |
+| Relational model                                             | ✅     | 🟥     |
+| Normalization forms                                          | ✅     | 🟧     |
+| SQL depth (joins, aggregation, subqueries, window functions) | ✅     | 🟥     |
+| ACID                                                         | ✅     | 🟥     |
+| Transactions and isolation levels                            | ✅     | 🟥     |
+| MVCC                                                         | ✅     | 🟧     |
+| Locking (row/table, optimistic/pessimistic)                  | ✅     | 🟧     |
+| Indexing (B-tree, hash, LSM-tree)                            | ✅     | 🟥     |
+| Write-ahead log (WAL)                                        | ✅     | 🟧     |
+| Storage engines                                              | ✅     | 🟧     |
+| Query planning and optimization                              | ✅     | 🟧     |
+| Connection pooling                                           | ✅     | 🟧     |
+| OLTP vs OLAP                                                 | ✅     | 🟥     |
 
 ## L3. Caching and Data Access
 
