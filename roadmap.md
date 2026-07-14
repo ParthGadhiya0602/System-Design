@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). Next in order:
+> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). **L3 is in progress** (1 of 8: caching layers and strategies done). Next in order:
 >
-> 1. **L3. Caching and Data Access** - start with caching layers and strategies (read-through, write-through, write-back, cache-aside).
+> 1. **L3. Caching and Data Access** - continue with eviction policies (LRU, LFU, TTL).
 > 2. Then proceed down the backend track in order (L4+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -142,7 +142,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 | Topic                                                                                | Status | Weight |
 | ------------------------------------------------------------------------------------ | ------ | ------ |
-| Caching layers and strategies (read-through, write-through, write-back, cache-aside) | ⚪     | 🟥     |
+| Caching layers and strategies (read-through, write-through, write-back, cache-aside) | ✅     | 🟥     |
 | Eviction policies (LRU, LFU, TTL)                                                    | ⚪     | 🟥     |
 | Redis vs Memcached                                                                   | ⚪     | 🟥     |
 | Cache stampede / dogpile / thundering herd                                           | ⚪     | 🟧     |
