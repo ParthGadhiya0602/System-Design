@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). **L3 is in progress** (3 of 8: caching layers and strategies, eviction policies, Redis vs Memcached done). Next in order:
+> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). **L3 is in progress** (4 of 8: caching layers and strategies, eviction policies, Redis vs Memcached, cache stampede / dogpile / thundering herd done). Next in order:
 >
-> 1. **L3. Caching and Data Access** - continue with cache stampede / dogpile / thundering herd.
+> 1. **L3. Caching and Data Access** - continue with cache coherence and invalidation.
 > 2. Then proceed down the backend track in order (L4+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -145,7 +145,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Caching layers and strategies (read-through, write-through, write-back, cache-aside) | ✅     | 🟥     |
 | Eviction policies (LRU, LFU, TTL)                                                    | ✅     | 🟥     |
 | Redis vs Memcached                                                                   | ✅     | 🟥     |
-| Cache stampede / dogpile / thundering herd                                           | ⚪     | 🟧     |
+| Cache stampede / dogpile / thundering herd                                           | ✅     | 🟧     |
 | Cache coherence and invalidation                                                     | ⚪     | 🟧     |
 | Negative caching                                                                     | ⚪     | 🟨     |
 | CDN caching                                                                          | ⚪     | 🟧     |
