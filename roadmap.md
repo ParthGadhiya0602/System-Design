@@ -148,7 +148,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Cache stampede / dogpile / thundering herd                                           | ✅     | 🟧     |
 | Cache coherence and invalidation                                                     | ✅     | 🟧     |
 | Negative caching                                                                     | ✅     | 🟨     |
-| CDN caching                                                                          | ⚪     | 🟧     |
+| CDN caching                                                                          | ✅     | 🟧     |
 | Object / blob storage                                                                | ⚪     | 🟥     |
 
 ## L4. NoSQL and Data at Scale
