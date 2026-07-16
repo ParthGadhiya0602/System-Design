@@ -1,6 +1,10 @@
 # Claude Code / assistant tooling - ignored for now
 .claude/
 CLAUDE.md
+.claude-flow
+.swarm
+.mcp.json
+ruvector.db
 
 # OS / editor cruft
 .DS_Store
