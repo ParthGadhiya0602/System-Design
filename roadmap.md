@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (3/15: NoSQL families, Replication, Partitioning and sharding done). Next in order:
+> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (4/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots done). Next in order:
 >
-> 1. **L4. NoSQL and Data at Scale** - continue with Rebalancing and hotspots.
+> 1. **L4. NoSQL and Data at Scale** - continue with Consistent hashing (virtual nodes).
 > 2. Then proceed down the backend track in order (L5+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -153,14 +153,14 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L4. NoSQL and Data at Scale
 
-**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (3/15) · Concepts · Case studies & sources
+**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (4/15) · Concepts · Case studies & sources
 
 | Topic                                                                                  | Status | Weight |
 | -------------------------------------------------------------------------------------- | ------ | ------ |
 | NoSQL families (KV, document, wide-column, graph, time-series, search, NewSQL, vector) | ✅     | 🟥     |
 | Replication (leader-follower, multi-leader, leaderless)                                | ✅     | 🟥     |
 | Partitioning and sharding                                                              | ✅     | 🟥     |
-| Rebalancing and hotspots                                                               | ⚪     | 🟧     |
+| Rebalancing and hotspots                                                               | ✅     | 🟧     |
 | Consistent hashing (virtual nodes)                                                     | ⚪     | 🟥     |
 | Data modeling and denormalization                                                      | ⚪     | 🟥     |
 | Quorums (R + W &gt; N)                                                                 | ⚪     | 🟧     |
