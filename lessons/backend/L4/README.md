@@ -2,12 +2,12 @@
 
 *Model, replicate, and partition data across many machines for large workloads.*
 
-**Just getting started** -- 1 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**Just getting started** -- 2 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
 | 01 | [NoSQL families (KV, document, wide-column, graph, time-series, search, NewSQL, vector)](01-nosql-families.md) | Eight data models built for eight different access patterns, and the one question that decides which fits. | ✅ |
-| 02 | Replication (leader-follower, multi-leader, leaderless) | Keeping copies of the same data on multiple machines in sync — one writer, many writers, or no fixed writer at all. | ⚪ |
+| 02 | [Replication (leader-follower, multi-leader, leaderless)](02-replication.md) | Keeping copies of the same data on multiple machines in sync — one writer, many writers, or no fixed writer at all. | ✅ |
 | 03 | Partitioning and sharding | Splitting data across many machines so no single node has to hold or serve all of it. | ⚪ |
 | 04 | Rebalancing and hotspots | What happens when partitions grow unevenly, and how a cluster redistributes data without falling over. | ⚪ |
 | 05 | Consistent hashing (virtual nodes) | A hashing scheme that lets nodes join and leave a cluster while moving only a small slice of the keyspace. | ⚪ |
@@ -22,4 +22,4 @@
 | 14 | Database branching / serverless DBs (Neon, PlanetScale) *(emerging)* | Databases that scale to zero and let you branch a copy the way you'd branch a git repo. | ⚪ |
 | 15 | Data contracts (schema-registry-enforced) *(emerging)* | Making a data producer's schema a versioned, enforced contract instead of an informal agreement. | ⚪ |
 
-**Deeper reference:** [research/backend/L4](../../../research/backend/L4/01-nosql-families.md)
+**Deeper reference:** [research/backend/L4](../../../research/backend/L4/02-replication.md)
