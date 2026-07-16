@@ -44,10 +44,10 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, and L2 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP). **L3 is in progress** (6 of 8: caching layers and strategies, eviction policies, Redis vs Memcached, cache stampede / dogpile / thundering herd, cache coherence and invalidation, negative caching done). Next in order:
+> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). Next in order:
 >
-> 1. **L3. Caching and Data Access** - continue with CDN caching.
-> 2. Then proceed down the backend track in order (L4+); the frontend track can now be interleaved (backend L0-L1 unlock it).
+> 1. **L4. NoSQL and Data at Scale** - start with NoSQL families (KV, document, wide-column, graph, time-series, search, NewSQL, vector).
+> 2. Then proceed down the backend track in order (L5+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
 
@@ -138,7 +138,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L3. Caching and Data Access
 
-**Goal:** Speed up reads and offload databases with the right caching layer, strategy, and failure handling. · **Prereqs:** L2.
+**Goal:** Speed up reads and offload databases with the right caching layer, strategy, and failure handling. · **Prereqs:** L2. **Material:** Lessons (8) · Concepts · Case studies & sources
 
 | Topic                                                                                | Status | Weight |
 | ------------------------------------------------------------------------------------ | ------ | ------ |
@@ -149,7 +149,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Cache coherence and invalidation                                                     | ✅     | 🟧     |
 | Negative caching                                                                     | ✅     | 🟨     |
 | CDN caching                                                                          | ✅     | 🟧     |
-| Object / blob storage                                                                | ⚪     | 🟥     |
+| Object / blob storage                                                                | ✅     | 🟥     |
 
 ## L4. NoSQL and Data at Scale
 
