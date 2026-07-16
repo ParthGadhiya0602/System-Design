@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (5/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing done). Next in order:
+> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (6/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization done). Next in order:
 >
-> 1. **L4. NoSQL and Data at Scale** - continue with Data modeling and denormalization.
+> 1. **L4. NoSQL and Data at Scale** - continue with Quorums (R + W &gt; N).
 > 2. Then proceed down the backend track in order (L5+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -153,7 +153,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L4. NoSQL and Data at Scale
 
-**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (5/15) · Concepts · Case studies & sources
+**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (6/15) · Concepts · Case studies & sources
 
 | Topic                                                                                  | Status | Weight |
 | -------------------------------------------------------------------------------------- | ------ | ------ |
@@ -162,7 +162,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Partitioning and sharding                                                              | ✅     | 🟥     |
 | Rebalancing and hotspots                                                               | ✅     | 🟧     |
 | Consistent hashing (virtual nodes)                                                     | ✅     | 🟥     |
-| Data modeling and denormalization                                                      | ⚪     | 🟥     |
+| Data modeling and denormalization                                                      | ✅     | 🟥     |
 | Quorums (R + W &gt; N)                                                                 | ⚪     | 🟧     |
 | Change data capture (CDC) + outbox pattern                                             | ⚪     | 🟧     |
 | Event sourcing                                                                         | ⚪     | 🟧     |
@@ -395,7 +395,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 **Craft (learn before / alongside the problems):**
 
 | Topic                           | Status | Weight |
-| ------------------------------- | ------ | ------ |
+| -------------------------------- | ------ | ------ |
 | The design framework            | ⚪     | 🟥     |
 | Driving ambiguity and scoping   | ⚪     | 🟥     |
 | Trade-off articulation          | ⚪     | 🟥     |
@@ -466,7 +466,7 @@ Parallel/adjacent track. Can start once backend **L0-L1** material exists (needs
 **Goal:** Choose a rendering strategy and ship assets efficiently across the network. · **Prereqs:** FE-L0, backend L1.
 
 | Topic                                                                        | Status | Weight |
-| ---------------------------------------------------------------------------- | ------ | ------ |
+| ------------------------------------------------------------------------------ | ------ | ------ |
 | CSR / SSR / SSG / ISR / streaming SSR                                        | ⚪     | 🟥     |
 | React Server Components                                                      | ⚪     | 🟧     |
 | Suspense and concurrent rendering                                            | ⚪     | 🟧     |
@@ -532,7 +532,7 @@ Parallel/adjacent track. Can start once backend **L0-L1** material exists (needs
 **Goal:** Build live, offline-capable, and collaborative UIs with correct conflict handling. · **Prereqs:** FE-L2, backend L13.
 
 | Topic                                                             | Status | Weight |
-| ----------------------------------------------------------------- | ------ | ------ |
+| ------------------------------------------------------------------- | ------ | ------ |
 | WebSockets / SSE / polling (client-side)                          | ⚪     | 🟥     |
 | WebRTC                                                            | ⚪     | 🟧     |
 | WebTransport (emerging)                                           | ⚪     | 🟨     |
@@ -583,7 +583,7 @@ Parallel/adjacent track. Can start once backend **L0-L1** material exists (needs
 **Goal:** See inside the running client and defend it against abuse, leaks, and supply-chain attacks. · **Prereqs:** FE-L3.
 
 | Topic                                       | Status | Weight |
-| ------------------------------------------- | ------ | ------ |
+| --------------------------------------------- | ------ | ------ |
 | RUM and Core Web Vitals field data          | ⚪     | 🟧     |
 | Error tracking (Sentry)                     | ⚪     | 🟧     |
 | Session replay (with privacy scrubbing)     | ⚪     | 🟨     |
@@ -597,7 +597,7 @@ Parallel/adjacent track. Can start once backend **L0-L1** material exists (needs
 **Goal:** Apply the FE track under interview conditions; attempts go in `practice/` and are graded. This level carries the **highest interview weight**. · **Prereqs:** FE-L0 + the FE levels each problem exercises.
 
 | Problem                                       | Status | Weight |
-| --------------------------------------------- | ------ | ------ |
+| ------------------------------------------------ | ------ | ------ |
 | Typeahead widget                              | ⚪     | 🟥     |
 | Infinite feed                                 | ⚪     | 🟥     |
 | Carousel                                      | ⚪     | 🟧     |
