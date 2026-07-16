@@ -2,7 +2,7 @@
 
 *Model, replicate, and partition data across many machines for large workloads.*
 
-**Just getting started** -- 7 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**Just getting started** -- 8 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -13,7 +13,7 @@
 | 05 | [Consistent hashing (virtual nodes)](05-consistent-hashing.md) | A hashing scheme that lets nodes join and leave a cluster while moving only a small slice of the keyspace. | ✅ |
 | 06 | [Data modeling and denormalization](06-data-modeling-and-denormalization.md) | Designing the schema around the query instead of the query around the schema — NoSQL's core discipline, paid off. | ✅ |
 | 07 | [Quorums (R + W > N)](07-quorums.md) | Tuning how many replicas must agree on a read or write to trade consistency for availability. | ✅ |
-| 08 | Change data capture (CDC) + outbox pattern | Streaming a database's changes to everything else that needs to know about them, reliably. | ⚪ |
+| 08 | [Change data capture (CDC) + outbox pattern](08-cdc-and-outbox.md) | Streaming a database's changes to everything else that needs to know about them, reliably — without a shared transaction. | ✅ |
 | 09 | Event sourcing | Storing every change as an immutable event instead of overwriting state, so the log itself is the source of truth. | ⚪ |
 | 10 | CQRS | Splitting the read model from the write model so each can be optimized for what it actually does. | ⚪ |
 | 11 | Vector databases / ANN search (HNSW) *(emerging)* | Finding the nearest neighbors of a high-dimensional embedding fast, without scanning everything. | ⚪ |
