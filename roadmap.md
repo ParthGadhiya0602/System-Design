@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (8/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums (R + W &gt; N), Change data capture (CDC) + outbox pattern done). Next in order:
+> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (9/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums (R + W &gt; N), Change data capture (CDC) + outbox pattern, Event sourcing done). Next in order:
 >
-> 1. **L4. NoSQL and Data at Scale** - continue with Event sourcing.
+> 1. **L4. NoSQL and Data at Scale** - continue with CQRS.
 > 2. Then proceed down the backend track in order (L5+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -129,7 +129,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Transactions and isolation levels                            | ✅     | 🟥     |
 | MVCC                                                         | ✅     | 🟧     |
 | Locking (row/table, optimistic/pessimistic)                  | ✅     | 🟧     |
-| Indexing (B-tree, hash, LSM-tree)                            | ✅     | 🟥     |
+| Indexing (B-tree, hash, LSM-tree)                             | ✅     | 🟥     |
 | Write-ahead log (WAL)                                        | ✅     | 🟧     |
 | Storage engines                                              | ✅     | 🟧     |
 | Query planning and optimization                              | ✅     | 🟧     |
@@ -153,7 +153,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L4. NoSQL and Data at Scale
 
-**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (8/15) · Concepts · Case studies & sources
+**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (9/15) · Concepts · Case studies & sources
 
 | Topic                                                                                  | Status | Weight |
 | -------------------------------------------------------------------------------------- | ------ | ------ |
@@ -165,7 +165,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Data modeling and denormalization                                                      | ✅     | 🟥     |
 | Quorums (R + W &gt; N)                                                                 | ✅     | 🟧     |
 | Change data capture (CDC) + outbox pattern                                             | ✅     | 🟧     |
-| Event sourcing                                                                         | ⚪     | 🟧     |
+| Event sourcing                                                                         | ✅     | 🟧     |
 | CQRS                                                                                   | ⚪     | 🟧     |
 | Vector databases / ANN search (HNSW) (emerging)                                        | ⚪     | 🟨     |
 | Real-time OLAP (Pinot, Druid, ClickHouse) (emerging)                                   | ⚪     | 🟨     |
