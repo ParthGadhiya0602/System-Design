@@ -2,7 +2,7 @@
 
 *Model, replicate, and partition data across many machines for large workloads.*
 
-**Just getting started** -- 13 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**Almost there** -- 14 of 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -19,7 +19,7 @@
 | 11 | [Vector databases / ANN search (HNSW)](11-vector-databases-ann-search.md) | Finding the nearest neighbors of a high-dimensional embedding fast, without scanning everything. | ✅ |
 | 12 | [Real-time OLAP (Pinot, Druid, ClickHouse)](12-real-time-olap.md) *(emerging)* | Running analytical queries over fresh, still-arriving data instead of yesterday's batch. | ✅ |
 | 13 | [HTAP (hybrid transactional/analytical)](13-htap.md) *(emerging)* | One database trying to serve both transactions and analytics without an ETL pipeline in between. | ✅ |
-| 14 | Database branching / serverless DBs (Neon, PlanetScale) *(emerging)* | Databases that scale to zero and let you branch a copy the way you'd branch a git repo. | ⚪ |
+| 14 | [Database branching / serverless DBs (Neon, PlanetScale)](14-database-branching-serverless-dbs.md) *(emerging)* | Databases that scale to zero and let you branch a copy the way you'd branch a git repo. | ✅ |
 | 15 | Data contracts (schema-registry-enforced) *(emerging)* | Making a data producer's schema a versioned, enforced contract instead of an informal agreement. | ⚪ |
 
 **Deeper reference:** [research/backend/L4](../../../research/backend/L4/02-replication.md)
