@@ -2,7 +2,7 @@
 
 *Model, replicate, and partition data across many machines for large workloads.*
 
-**Complete** -- all 15 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
+**Complete** -- all 16 topics written. Work through them in order; each is a short, self-contained read (~5-8 min).
 
 | # | Lesson | In one line | Status |
 |---|--------|-------------|--------|
@@ -21,7 +21,8 @@
 | 13 | [HTAP (hybrid transactional/analytical)](13-htap.md) *(emerging)* | One database trying to serve both transactions and analytics without an ETL pipeline in between. | ✅ |
 | 14 | [Database branching / serverless DBs (Neon, PlanetScale)](14-database-branching-serverless-dbs.md) *(emerging)* | Databases that scale to zero and let you branch a copy the way you'd branch a git repo. | ✅ |
 | 15 | [Data contracts (schema-registry-enforced)](15-data-contracts-schema-registry-enforced.md) *(emerging)* | Making a data producer's schema a versioned, enforced contract instead of an informal agreement. | ✅ |
+| 16 | [Hybrid Logical Clocks vs TrueTime](16-hybrid-logical-clocks-vs-truetime.md) | Two answers to "can I trust a timestamp from another machine" — one pure software, one built on atomic clocks. | ✅ |
 
-**Deeper reference:** [research/backend/L4](../../../research/backend/L4/02-replication.md)
+**L4 complete.** **Deeper reference:** [research/backend/L4](../../../research/backend/L4/02-replication.md)
 
-**Next up:** L5. Distributed Systems Theory — consistency, consensus, and coordination under partial failure.
+**Next up:** L5. Distributed Systems Theory — consistency, consensus, and coordination under partial failure, starting with CAP and PACELC.
