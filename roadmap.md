@@ -44,10 +44,10 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, L2, L3, and L4 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage; L4 = all 16 NoSQL/data-at-scale lessons - NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums, CDC + outbox, Event sourcing, CQRS, Vector databases, Real-time OLAP, HTAP, Database branching/serverless DBs, Data contracts, finishing with Hybrid Logical Clocks vs TrueTime). Next in order:
+> **F, L0, L1, L2, L3, and L4 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage; L4 = all 16 NoSQL/data-at-scale lessons - NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums, CDC + outbox, Event sourcing, CQRS, Vector databases, Real-time OLAP, HTAP, Database branching/serverless DBs, Data contracts, finishing with Hybrid Logical Clocks vs TrueTime). **L5 is now in progress** (1/22 topics done: CAP and PACELC). Next in order:
 >
-> 1. **L5. Distributed Systems Theory** - start with **CAP and PACELC** (L5's first topic; prereqs L4 are now satisfied).
-> 2. Then continue down L5 in sequence (Consistency models, Linearizability vs serializability, Consensus, ...); the frontend track can also be interleaved (backend L0-L1 unlock it).
+> 1. **L5. Distributed Systems Theory** - continue with **Consistency models (strong, eventual, causal, read-your-writes)** (L5's second topic, right after CAP and PACELC).
+> 2. Then continue down L5 in sequence (Linearizability vs serializability, Consensus, ...); the frontend track can also be interleaved (backend L0-L1 unlock it).
 
 ---
 
@@ -176,11 +176,11 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L5. Distributed Systems Theory
 
-**Goal:** Reason rigorously about consistency, consensus, time, and coordination under partial failure. · **Prereqs:** L4.
+**Goal:** Reason rigorously about consistency, consensus, time, and coordination under partial failure. · **Prereqs:** L4. **Material:** Lessons (1/22) · Concepts · Case studies & sources
 
 | Topic                                                               | Status | Weight |
 | ------------------------------------------------------------------- | ------ | ------ |
-| CAP and PACELC                                                      | ⚪     | 🟥     |
+| CAP and PACELC                                                      | ✅     | 🟥     |
 | Consistency models (strong, eventual, causal, read-your-writes)     | ⚪     | 🟥     |
 | Linearizability vs serializability                                  | ⚪     | 🟧     |
 | Consensus (Paxos, Raft, ZAB)                                        | ⚪     | 🟥     |
