@@ -44,9 +44,9 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## What's next (current pointer)
 
-> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (14/15: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums (R + W &gt; N), Change data capture (CDC) + outbox pattern, Event sourcing, CQRS, Vector databases / ANN search (HNSW), Real-time OLAP (Pinot, Druid, ClickHouse), HTAP (hybrid transactional/analytical), Database branching / serverless DBs (Neon, PlanetScale) done). Next in order:
+> **F, L0, L1, L2, and L3 are** `done` (F + L0 = 25 foundation lessons; L1 = all 17 networking lessons; L2 = all 13 storage/relational-DB lessons, finishing with OLTP vs OLAP; L3 = all 8 caching/data-access lessons, finishing with object/blob storage). **L4 is in progress** (15/16: NoSQL families, Replication, Partitioning and sharding, Rebalancing and hotspots, Consistent hashing, Data modeling and denormalization, Quorums (R + W &gt; N), Change data capture (CDC) + outbox pattern, Event sourcing, CQRS, Vector databases / ANN search (HNSW), Real-time OLAP (Pinot, Druid, ClickHouse), HTAP (hybrid transactional/analytical), Database branching / serverless DBs (Neon, PlanetScale), Data contracts (schema-registry-enforced) done). Next in order:
 >
-> 1. **L4. NoSQL and Data at Scale** - continue with Data contracts (schema-registry-enforced).
+> 1. **L4. NoSQL and Data at Scale** - finish with Hybrid Logical Clocks vs TrueTime (L4's one remaining topic).
 > 2. Then proceed down the backend track in order (L5+); the frontend track can now be interleaved (backend L0-L1 unlock it).
 
 ---
@@ -153,7 +153,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 
 ## L4. NoSQL and Data at Scale
 
-**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (14/15) · Concepts · Case studies & sources
+**Goal:** Model, replicate, and partition data across many machines for large workloads. · **Prereqs:** L2, L3. **Material:** Lessons (15/16) · Concepts · Case studies & sources
 
 | Topic                                                                                  | Status | Weight |
 | -------------------------------------------------------------------------------------- | ------ | ------ |
@@ -171,7 +171,7 @@ Start at **F. Computing Fundamentals** (backend). It requires no prerequisites a
 | Real-time OLAP (Pinot, Druid, ClickHouse) (emerging)                                   | ✅     | 🟨     |
 | HTAP (hybrid transactional/analytical) (emerging)                                      | ✅     | 🟨     |
 | Database branching / serverless DBs (Neon, PlanetScale) (emerging)                     | ✅     | 🟨     |
-| Data contracts (schema-registry-enforced) (emerging)                                   | ⚪     | 🟨     |
+| Data contracts (schema-registry-enforced) (emerging)                                   | ✅     | 🟨     |
 | Hybrid Logical Clocks vs TrueTime                                                      | ⚪     | 🟨     |
 
 ## L5. Distributed Systems Theory
